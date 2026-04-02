@@ -1498,192 +1498,151 @@ class ContextFormalizationTester:
 
 ---
 
-## 研究连接与未来方向
+## Research Connections and Future Directions
 
 ### Connection to Context Engineering Survey
 
-该上下文形式化模块直接实现并扩展了 [Context Engineering Survey](https://arxiv.org/pdf/2507.13334) 中的基础概念：
+This context formalization module directly implements and extends foundational concepts from the [Context Engineering Survey](https://arxiv.org/pdf/2507.13334):
 
-**Context Generation and Retrieval (§4.1)**：
+**Context Generation and Retrieval (§4.1)**:
+- Implements systematic component analysis frameworks from Chain-of-Thought, ReAct, and Auto-CoT methodologies
+- Extends dynamic assembly concepts from CLEAR Framework and Cognitive Prompting into mathematical formalization
+- Addresses context generation challenges through structured template systems and computational optimization
 
-- 将 Chain-of-Thought、ReAct、Auto-CoT 等方法论中的系统化“组件分析”框架落地为可执行的形式化流程
+**Context Processing (§4.2)**:
+- Tackles long context handling through hierarchical assembly strategies inspired by LongNet and StreamingLLM
+- Addresses context management through token budget optimization and quality-aware component selection
+- Solves information integration complexity through multi-modal component processing and adaptive refinement
 
-- 把 CLEAR Framework 与 Cognitive Prompting 的动态组装思想延伸为可数学化的形式化表达
+**Context Management (§4.3)**:
+- Implements context compression strategies through intelligent component truncation and optimization algorithms
+- Addresses context window management through dynamic token allocation and priority-based selection
+- Provides systematic approaches to context quality maintenance through continuous assessment and improvement
 
-- 通过结构化模板系统与计算优化应对上下文生成的工程挑战
-
-**Context Processing (§4.2)**：
-
-- 借鉴 LongNet 与 StreamingLLM 的思路，用分层组装策略处理长上下文
-
-- 通过 token 预算优化与“质量感知”的组件选择实现上下文管理
-
-- 通过多模态组件处理与自适应精炼降低信息整合复杂度
-
-**Context Management (§4.3)**：
-
-- 通过智能截断组件与优化算法实现上下文压缩策略
-
-- 通过动态 token 分配与基于优先级的选择管理上下文窗口
-
-- 通过持续评估与改进提供系统化的上下文质量维护方法
-
-**Foundational Research Needs (§7.1)**：
-
-- 按 scaling laws 相关研究的脉络展示上下文优化的理论基础
-
-- 通过组件交互分析实现 compositional understanding 的框架化表达
-
-- 为应对 O(n²) 计算挑战的上下文优化提供数学化依据
+**Foundational Research Needs (§7.1)**:
+- Demonstrates theoretical foundations for context optimization as outlined in scaling laws research
+- Implements compositional understanding frameworks through component interaction analysis
+- Provides mathematical basis for context optimization addressing O(n²) computational challenges
 
 ### Novel Contributions Beyond Current Research
 
-**Mathematical Formalization Framework**：survey 覆盖了大量 context engineering 技术，但我们给出的系统化数学形式化 `C = A(c₁, c₂, ..., c₆)` 更强调“严谨理论基础”的构建，从而支持系统化分析与可持续改进。
+**Mathematical Formalization Framework**: While the survey covers context engineering techniques, our systematic mathematical formalization C = A(c₁, c₂, ..., c₆) represents novel research into rigorous theoretical foundations for context optimization, enabling systematic analysis and improvement.
 
-**Three-Paradigm Integration**：把 Prompts（模板）、Programming（算法）、Protocols（自适应系统）统一整合，形成一套从战术落地到战略演化的完整方法论，超出很多现有工作只覆盖单点策略的边界。
+**Three-Paradigm Integration**: The unified integration of Prompts (templates), Programming (algorithms), and Protocols (adaptive systems) extends beyond current research approaches by providing a comprehensive methodology that spans from tactical implementation to strategic evolution.
 
-**Quality-Driven Assembly Optimization**：我们以（relevance、completeness、consistency、efficiency）为核心的多维质量评估框架，并将其纳入数学优化过程，把“临时性、主观性”的质量度量推进到“可度量、可复现”的系统化工程路径。
+**Quality-Driven Assembly Optimization**: Our multi-dimensional quality assessment framework (relevance, completeness, consistency, efficiency) with mathematical optimization represents advancement beyond current ad-hoc quality measures toward systematic, measurable context engineering.
 
-**Adaptive Learning Architecture**：将效果反馈闭环、策略演化与持续改进 protocol 结合，面向的是能够“随时间学习并优化自身组装策略”的上下文系统，这更接近前沿研究问题的形态。
+**Adaptive Learning Architecture**: The integration of performance feedback loops, strategy evolution, and continuous improvement protocols represents frontier research into context systems that learn and optimize their own assembly strategies over time.
 
 ### Future Research Directions
 
-**Quantum-Inspired Context Assembly**：探索受量子叠加启发的形式化方式：组件在被组装函数“测量”前可处于多个相关性状态，随后坍缩到最优配置。
+**Quantum-Inspired Context Assembly**: Exploring context formalization approaches inspired by quantum superposition, where components can exist in multiple relevance states simultaneously until "measurement" by the assembly function collapses them into optimal configurations.
 
-**Neuromorphic Context Processing**：借鉴生物神经网络的组装策略：用连续激活模式与突触可塑性替代离散组件选择，使信息整合更流动、更自适应。
+**Neuromorphic Context Processing**: Context assembly strategies inspired by biological neural networks, with continuous activation patterns and synaptic plasticity rather than discrete component selection, enabling more fluid and adaptive information integration.
 
-**Semantic Field Theory**：为上下文组件发展连续的语义场表示，让组装函数在连续信息景观上运作，而非依赖离散组件边界，从而实现更细粒度的优化。
+**Semantic Field Theory**: Development of continuous semantic field representations for context components, where assembly functions operate on continuous information landscapes rather than discrete component boundaries, enabling more nuanced optimization.
 
-**Cross-Modal Context Unification**：研究统一数学框架，使文本、视觉、音频与时序信息能够在同一套组装优化框架中无缝融合，推进真正的多模态 context engineering。
+**Cross-Modal Context Unification**: Research into unified mathematical frameworks that can seamlessly integrate text, visual, audio, and temporal information components within the same assembly optimization framework, advancing toward truly multimodal context engineering.
 
-**Meta-Context Engineering**：研究能够“推理并优化自身形式化过程”的上下文系统，形成递归式改进闭环，让组装函数也能演化其数学基础。
+**Meta-Context Engineering**: Investigation of context systems that can reason about and optimize their own formalization processes, creating recursive improvement loops where assembly functions evolve their own mathematical foundations.
 
-**Human-AI Collaborative Context Design**：发展面向人机协作的形式化框架：在数学优化过程中显式纳入人类认知模式、决策偏差与协作偏好。
+**Human-AI Collaborative Context Design**: Development of formalization frameworks specifically designed for human-AI collaborative context creation, accounting for human cognitive patterns, decision-making biases, and collaborative preferences in the mathematical optimization process.
 
-**Distributed Context Assembly**：研究跨分布式系统与多代理的上下文形式化：组件与组装函数分布在网络中，同时保持数学一致性与优化有效性。
+**Distributed Context Assembly**: Research into context formalization across distributed systems and multiple agents, where components and assembly functions are distributed across networks while maintaining mathematical coherence and optimization effectiveness.
 
-**Temporal Context Dynamics**：研究时间依赖的上下文形式化：组件相关性、组装策略与质量指标随时间演化，需要能适配时序变化的动态数学框架。
+**Temporal Context Dynamics**: Investigation of time-dependent context formalization where component relevance, assembly strategies, and quality metrics evolve over time, requiring dynamic mathematical frameworks that adapt to changing temporal contexts.
 
-### 新兴的数学挑战
+### Emerging Mathematical Challenges
 
-**Context Complexity Theory**：为上下文组装问题发展专用的计算复杂度分析，给出不同组装策略在优化效果与计算需求上的理论边界。
+**Context Complexity Theory**: Development of computational complexity analysis specific to context assembly problems, establishing theoretical bounds on optimization effectiveness and computational requirements for different assembly strategies.
 
-**Information-Theoretic Context Bounds**：研究上下文压缩与组装效率的基本极限，给出在 token 约束下仍能保持质量的“有效信息可整合量”的数学边界。
+**Information-Theoretic Context Bounds**: Research into fundamental limits of context compression and assembly efficiency, establishing mathematical bounds on how much information can be effectively integrated within token constraints while maintaining quality.
 
-**Context Assembly Convergence**：研究迭代式上下文优化在何种数学条件下收敛到最优解，并为自适应组装算法提供收敛性保证。
+**Context Assembly Convergence**: Investigation of mathematical conditions under which iterative context optimization approaches converge to optimal solutions, and development of convergence guarantees for adaptive assembly algorithms.
 
-**Multi-Objective Context Optimization**：当同时优化多个相互竞争的目标（relevance vs. efficiency vs. completeness）时，研究上下文组装的 Pareto 最优解，并发展穿越复杂权衡空间的数学框架。
+**Multi-Objective Context Optimization**: Advanced research into Pareto-optimal solutions for context assembly when optimizing multiple competing objectives (relevance vs. efficiency vs. completeness), developing mathematical frameworks for navigating complex trade-off landscapes.
 
-### 工业与实践研究应用
+### Industrial and Practical Research Applications
 
-**Context Engineering at Scale**：研究可支撑企业级规模的形式化框架：在拥有百万级组件与实时组装需求时，通过数学优化与分布式处理解决可扩展性挑战。
+**Context Engineering at Scale**: Research into formalization frameworks that can handle enterprise-scale context engineering with millions of components and real-time assembly requirements, addressing scalability challenges through mathematical optimization and distributed processing.
 
-**Domain-Specific Context Mathematics**：在关键领域（medical diagnosis、legal reasoning、financial analysis）发展专用数学框架：领域特定的质量约束与优化目标要求定制化的形式化路径。
+**Domain-Specific Context Mathematics**: Development of specialized mathematical frameworks for context formalization in critical domains (medical diagnosis, legal reasoning, financial analysis) where domain-specific quality constraints and optimization objectives require tailored formalization approaches.
 
-**Context Security and Privacy**：研究在保持数学优化有效性的同时，把安全约束、隐私保护与信息访问控制作为“一等数学约束”纳入形式化框架。
+**Context Security and Privacy**: Investigation of context formalization frameworks that maintain mathematical optimization effectiveness while incorporating security constraints, privacy preservation, and information access controls as first-class mathematical constraints.
 
-**Context Engineering Standardization**：推动标准化的数学框架与质量指标，使不同 context engineering 系统能够互操作，同时保留优化有效性与质量保证能力。
+**Context Engineering Standardization**: Research toward standardized mathematical frameworks and quality metrics that enable interoperability between different context engineering systems while maintaining optimization effectiveness and quality assurance.
 
-### 高级应用的理论基础
+### Theoretical Foundations for Advanced Applications
 
-**Context Compositionality**：从数学角度研究上下文组件如何组合与交互，发展代数化框架以理解组件协同、冲突与组装后涌现性质。
+**Context Compositionality**: Mathematical investigation of how context components combine and interact, developing algebraic frameworks for understanding component synergies, conflicts, and emergent properties in assembled contexts.
 
-**Context Invariance Theory**：研究在不同组装策略与优化方法下保持稳定的数学不变量，建立独立于具体实现选择的有效形式化“基本性质”。
+**Context Invariance Theory**: Research into mathematical invariants that remain stable across different assembly strategies and optimization approaches, establishing fundamental properties of effective context formalization independent of specific implementation choices.
 
-**Context Information Geometry**：把微分几何应用于上下文优化：将组装过程视为在高维信息流形上的导航，组装函数对应为几何变换，并具有可度量的曲率与距离性质。
+**Context Information Geometry**: Application of differential geometry to context optimization, treating context assembly as navigation through high-dimensional information manifolds where assembly functions become geometric transformations with measurable curvature and distance properties.
 
-**Context Game Theory**：将博弈论框架扩展到多代理上下文组装场景：不同代理贡献组件与组装策略，需要用数学框架来协商并逼近“群体最优”的形式化策略。
-
----
-
-## 总结与下一步
-
-### 已掌握的关键概念
-
-**Mathematical Formalization**：
-
-- 上下文组装函数：`C = A(c₁, c₂, c₃, c₄, c₅, c₆)`
-
-- 组件分析与质量度量指标
-
-- 多目标优化框架
-
-**Three Paradigm Integration**：
-
-- **Prompts**：用于一致、高质量组织组件的策略模板
-
-- **Programming**：用于系统化组装与优化的计算算法
-
-- **Protocols**：可学习并演化组装策略的自适应系统
-
-**Advanced Capabilities**：
-
-- 领域特定的优化方法
-
-- 多用户个性化系统
-
-- 全面的测试与验证框架
-
-### 已获得的实践掌握
-
-现在你可以：
-
-1. 用数学原则**设计上下文形式化系统**
-
-2. 在统一工作流中**实现三大范式**
-
-3. 通过系统性度量与改进**优化上下文质量**
-
-4. 构建可从效果反馈中学习的**自适应系统**
-
-5. 对 context engineering 实现进行**验证与测试**
-
-### 与课程后续的衔接
-
-这套数学基础将支撑后续模块：
-
-- **Optimization Theory**（Module 02）：系统性改进组装函数
-
-- **Information Theory**（Module 03）：量化信息含量与相关性
-
-- **Bayesian Inference**（Module 04）：在不确定性下做自适应上下文选择
-
-你在此掌握的“三范式集成”将为所有高级 context engineering 技术提供架构层面的地基。
-
-**下一模块**：[02_optimization_theory.md](02_optimization_theory.md) ——我们将学习如何用数学优化方法系统性地寻找最优的组装函数与组件配置。
+**Context Game Theory**: Extension of game-theoretic frameworks to multi-agent context assembly scenarios where different agents contribute components and assembly strategies, requiring mathematical frameworks for negotiating optimal collective context formalization strategies.
 
 ---
 
-## 快速参考：实现检查清单
+## Summary and Next Steps
 
-### Prompts 范式实现
+### Key Concepts Mastered
 
-- [ ] 针对每类上下文组件的模板（c₁-c₆）
+**Mathematical Formalization**:
+- Context assembly function: `C = A(c₁, c₂, c₃, c₄, c₅, c₆)`
+- Component analysis and quality metrics
+- Multi-objective optimization framework
 
-- [ ] 组装策略模板（linear、weighted、hierarchical）
+**Three Paradigm Integration**:
+- **Prompts**: Strategic templates for consistent, high-quality component organization
+- **Programming**: Computational algorithms for systematic assembly and optimization
+- **Protocols**: Adaptive systems that learn and evolve assembly strategies
 
-- [ ] 质量标准定义与验证模板
+**Advanced Capabilities**:
+- Domain-specific optimization approaches
+- Multi-user personalization systems
+- Comprehensive testing and validation frameworks
 
-- [ ] 领域特定的模板库
+### Practical Mastery Achieved
 
-### Programming 范式实现
+You can now:
+1. **Design context formalization systems** using mathematical principles
+2. **Implement all three paradigms** in integrated workflows
+3. **Optimize context quality** through systematic measurement and improvement
+4. **Build adaptive systems** that learn from performance feedback
+5. **Validate and test** context engineering implementations
 
-- [ ] 带质量度量的组件分析算法
+### Connection to Course Progression
 
-- [ ] 具备优化能力的组装函数
+This mathematical foundation enables:
+- **Optimization Theory** (Module 02): Systematic improvement of assembly functions
+- **Information Theory** (Module 03): Quantifying information content and relevance
+- **Bayesian Inference** (Module 04): Adaptive context selection under uncertainty
 
-- [ ] 多维评分的质量评估系统
+The three-paradigm integration you've mastered here provides the architectural foundation for all advanced context engineering techniques.
 
-- [ ] 性能监控与反馈闭环集成
+**Next Module**: [02_optimization_theory.md](02_optimization_theory.md) - Where we'll learn to systematically find the optimal assembly functions and component configurations using mathematical optimization techniques.
 
-### Protocols 范式实现
+---
 
-- [ ] 自适应的组装策略选择
+## Quick Reference: Implementation Checklist
 
-- [ ] 实时优化与调整机制
+### Prompts Paradigm Implementation
+- [ ] Component templates for each context type (c₁-c₆)
+- [ ] Assembly strategy templates (linear, weighted, hierarchical)
+- [ ] Quality standard definitions and validation templates
+- [ ] Domain-specific template libraries
 
-- [ ] 从经验中持续改进的学习系统
+### Programming Paradigm Implementation
+- [ ] Component analysis algorithms with quality metrics
+- [ ] Assembly functions with optimization capabilities
+- [ ] Quality assessment systems with multi-dimensional scoring
+- [ ] Performance monitoring and feedback integration
 
-- [ ] 用于持续改进的自进化 protocol
+### Protocols Paradigm Implementation
+- [ ] Adaptive assembly strategy selection
+- [ ] Real-time optimization and adjustment mechanisms
+- [ ] Learning systems that improve from experience
+- [ ] Self-evolution protocols for continuous improvement
 
-这套完整基础将 context engineering 从“手工艺术”推进为“系统化、可度量、可持续改进”的科学工程实践。
+This comprehensive foundation transforms context engineering from an art into a systematic, measurable, and continuously improving science.
