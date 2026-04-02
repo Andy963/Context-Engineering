@@ -129,6 +129,40 @@ Structure all responses with:
 - Clarity: Use accessible language appropriate for audience
 - Actionability: Provide concrete, implementable guidance
 
+# 指令组件模板（c₁）
+
+## 角色定义框架
+
+你是一个在[领域]拥有专业能力、并专注于[具体方向]的[角色]。
+
+你的核心能力包括：
+- [能力_1]：[能力说明及其应用场景]
+- [能力_2]：[能力说明及其应用场景]
+- [能力_3]：[能力说明及其应用场景]
+
+## 行为约束
+
+工作原则：
+- 基于证据：始终基于现有数据提出建议
+- 结构化思考：将复杂问题拆解为系统化的组成部分
+- 保持透明：解释推理过程，并明确说明局限性
+- 适应性：根据上下文和约束调整处理方式
+
+## 输出格式要求
+
+所有回答都按以下结构组织：
+1. 执行摘要（2-3 句话）
+2. 分析（系统化拆解）
+3. 建议（可执行的下一步）
+4. 置信度评估（高 / 中 / 低，并说明理由）
+
+## 质量标准
+
+- 相关性：直接回应查询中的核心部分
+- 完整性：在范围内覆盖所有必要方面
+- 清晰性：使用适合目标读者、易于理解的语言
+- 可执行性：提供具体、可落实的指导
+
 ```
 
 </pre>
@@ -896,25 +930,25 @@ Protocols 提供“可自我改进”的组装函数：它们会根据效果反�
 
   "optimization_dimensions": {
     "relevance_optimization": {
-      "description": "Improve semantic relevance between components and queries",
+      "description": "提升组件与查询之间的语义相关性",
       "metrics": ["semantic_similarity", "query_coverage", "information_density"],
       "optimization_methods": ["embedding_similarity", "keyword_analysis", "concept_mapping"]
     },
 
     "efficiency_optimization": {
-      "description": "Maximize information value per token used",
+      "description": "最大化每个已用 token 所承载的信息价值",
       "metrics": ["information_density", "token_utilization", "redundancy_elimination"],
       "optimization_methods": ["content_compression", "duplicate_removal", "priority_ranking"]
     },
 
     "quality_optimization": {
-      "description": "Enhance overall component quality and reliability",
+      "description": "提升组件整体质量与可靠性",
       "metrics": ["source_authority", "information_freshness", "factual_accuracy"],
       "optimization_methods": ["source_validation", "fact_checking", "currency_assessment"]
     },
 
     "coherence_optimization": {
-      "description": "Ensure consistency and logical flow across components",
+      "description": "确保组件之间的一致性与逻辑流畅性",
       "metrics": ["internal_consistency", "logical_flow", "contradiction_detection"],
       "optimization_methods": ["consistency_checking", "logical_validation", "conflict_resolution"]
     }
@@ -1466,7 +1500,7 @@ class ContextFormalizationTester:
 
 ## 研究连接与未来方向
 
-### 与 Context Engineering Survey 的连接
+### Connection to Context Engineering Survey
 
 该上下文形式化模块直接实现并扩展了 [Context Engineering Survey](https://arxiv.org/pdf/2507.13334) 中的基础概念：
 
@@ -1502,7 +1536,7 @@ class ContextFormalizationTester:
 
 - 为应对 O(n²) 计算挑战的上下文优化提供数学化依据
 
-### 超越现有研究的新增贡献
+### Novel Contributions Beyond Current Research
 
 **Mathematical Formalization Framework**：survey 覆盖了大量 context engineering 技术，但我们给出的系统化数学形式化 `C = A(c₁, c₂, ..., c₆)` 更强调“严谨理论基础”的构建，从而支持系统化分析与可持续改进。
 
@@ -1512,7 +1546,7 @@ class ContextFormalizationTester:
 
 **Adaptive Learning Architecture**：将效果反馈闭环、策略演化与持续改进 protocol 结合，面向的是能够“随时间学习并优化自身组装策略”的上下文系统，这更接近前沿研究问题的形态。
 
-### 未来研究方向
+### Future Research Directions
 
 **Quantum-Inspired Context Assembly**：探索受量子叠加启发的形式化方式：组件在被组装函数“测量”前可处于多个相关性状态，随后坍缩到最优配置。
 
