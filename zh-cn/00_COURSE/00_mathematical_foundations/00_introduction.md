@@ -26,30 +26,42 @@
 
 ```text
 Intuitive Cook: "Add salt until it tastes right"
-Culinary Scientist: "Add 1.2% salt by weight for optimal flavor enhancement"
-Result: Reproducible excellence, measurable improvement, systematic innovation
+直觉型厨师："加盐，加到尝起来刚刚好为止"
 
+Culinary Scientist: "Add 1.2% salt by weight for optimal flavor enhancement"
+烹饪科学家："按重量加入 1.2% 的盐，以获得最佳风味提升"
+
+Result: Reproducible excellence, measurable improvement, systematic innovation
+结果：卓越表现可复现，改进可度量，创新可系统化
 ```
 
 **从导航到 GPS 系统**：
 
 ```text
 Intuitive Navigator: "Head toward the mountains, then follow the river"
-Mathematical System: "Optimize path using Dijkstra's algorithm with real-time traffic data"
-Result: Optimal routes, continuous adaptation, predictable performance
+直觉型导航者："朝山的方向走，然后沿着河流前进"
 
+Mathematical System: "Optimize path using Dijkstra's algorithm with real-time traffic data"
+数学系统："使用 Dijkstra 算法结合实时交通数据优化路径"
+
+Result: Optimal routes, continuous adaptation, predictable performance
+结果：路线最优、持续适应、性能可预测
 ```
 
 **从 Context Engineering 直觉到数学化掌握**：
 
 ```text
 Intuitive Approach: "Include relevant information and organize it clearly"
-Mathematical Framework: "Optimize C = A(c₁, c₂, ..., c₆) subject to constraints"
-Result: Systematic optimization, measurable quality, continuous learning
+直觉式方法："包含相关信息，并把它清晰地组织起来"
 
+Mathematical Framework: "Optimize C = A(c₁, c₂, ..., c₆) subject to constraints"
+数学框架："在约束条件下优化 C = A(c₁, c₂, ..., c₆)"
+
+Result: Systematic optimization, measurable quality, continuous learning
+结果：系统化优化、质量可度量、能力可持续学习
 ```
 
-**共同模式**：数学不是用来替代直觉的——它会放大并系统化直觉，让优化能力超出人类认知极限的“手工调参”。
+**共同模式**：数学不是用来替代直觉的——它会放大并系统化直觉，让优化能力超越人类认知的极限。
 
 ---
 
@@ -59,7 +71,10 @@ Result: Systematic optimization, measurable quality, continuous learning
 
 本段数学基础模块遵循“从具体到抽象、从简单到复杂”的渐进式设计：
 
-```text
+<table>
+<tr>
+<td valign="top">
+<pre>
     Mathematical Mastery Progression
 
              FORMALIZATION
@@ -101,8 +116,55 @@ Result: Systematic optimization, measurable quality, continuous learning
     │ decisions with incomplete       │
     │ information through Bayes' rule │
     └─────────────────────────────────┘
+</pre>
+</td>
+<td valign="top">
+<pre>
+              数学掌握进阶
 
-```
+               形式化
+    ┌─────────────────────────────────┐
+    │ C = A(c₁, c₂, c₃, c₄, c₅, c₆)   │
+    │                                 │
+    │ 将直觉性的 context 转化为精确的 │
+    │ 数学框架，从而能够开展系统化的  │
+    │ 分析与优化                      │
+    │                                 │
+    └─────────────────────────────────┘
+                    ↓
+                优化
+    ┌─────────────────────────────────┐
+    │ F* = arg max E[Reward(C)]       │
+    │                                 │
+    │ 通过数学优化技术与系统化搜索策  │
+    │ 略，找到尽可能最佳的 assembly   │
+    │ function                        │
+    │                                 │
+    └─────────────────────────────────┘
+                    ↓
+              信息论
+    ┌─────────────────────────────────┐
+    │ I(Context; Query) maximization  │
+    │                                 │
+    │ 量化信息价值，精确衡量相关性，  │
+    │ 并借助数学信息论消除冗余        │
+    │                                 │
+    │                                 │
+    └─────────────────────────────────┘
+                    ↓
+              贝叶斯推断
+    ┌─────────────────────────────────┐
+    │ P(Strategy|Evidence) updating   │
+    │                                 │
+    │ 从经验中学习，在不确定性下自适  │
+    │ 应，并通过贝叶斯法则在信息不完  │
+    │ 全时做出最优决策                │
+    │                                 │
+    └─────────────────────────────────┘
+</pre>
+</td>
+</tr>
+</table>
 
 ### 元学习（Meta Learning）体验
 
@@ -126,6 +188,10 @@ Module_Learning(concepts) =
     Experience Concept → See Mathematical Form → Implement in Code → Apply to Problems →
                                         ↑                                      ↓
                                      Research Integration ← Practical Mastery ←┘
+
+    体验概念 → 看见数学形式 → 在代码中实现 → 应用于实际问题 →
+                           ↑                         ↓
+                        研究整合 ← 实践掌握 ←────────┘
 
 ```
 
@@ -157,7 +223,7 @@ Module_Learning(concepts) =
 
 ### 实际影响：性能革命
 
-**数学化 Context Engineering 的量化收益**：
+**量化“（可测量，量度）的上下文工程”的收益**：
 
 ```text
 Traditional Approach vs. Mathematical Approach:
@@ -167,6 +233,14 @@ Optimization Speed:             100-1000x faster than manual tuning
 Consistency:                    >95% reproducible results vs. ~60% manual
 Adaptation Speed:               Real-time learning vs. days/weeks manual
 Scale Capability:               Unlimited vs. expert bottleneck
+
+传统方法 vs. 数学方法：
+
+上下文质量提升：              相关性与完整性提升 2-5 倍
+优化速度：                    比人工调优快 100-1000 倍
+一致性：                      可复现结果 >95%，人工方式约为 ~60%
+适应速度：                    实时学习，而人工方式需要数天或数周
+规模能力：                    近乎无限，而人工方式受专家瓶颈限制
 
 ```
 
@@ -227,7 +301,7 @@ class MathematicalContextOptimizer:
 
 ```
 
-### 范式 3：Protocols（编排与自进化）
+### 范式 3：Protocols（编排）
 
 **编排模式与自我改进系统**：
 
@@ -491,6 +565,14 @@ Protocol 告诉 AI 系统：
 
 **高级上下文管理 protocol 示例**：
 
+大致思路：
+
+- 先看系统已经知道什么、还缺什么。
+- 决定应该优先查询哪些资料来源。
+- 把有限的精力优先放在最重要、最相关的资料上。
+- 把检索到的内容整理成清晰、有结构的笔记。
+- 再根据整理后的笔记生成最终答案。
+
 ```text
 /context.orchestration{
     intent="Dynamically manage context across multiple information sources and processing stages",
@@ -684,7 +766,7 @@ Implementation: λ·(token_count - budget_limit) + quality_objective
 
 ---
 
-## 评估理念：验证“数学理解”而非背诵
+## 评估理念：验证对数学的理解
 
 ### 渐进式数学能力
 
@@ -741,6 +823,10 @@ Problem: "This context doesn't work well"
 Approach: "Try different combinations until something works better"
 Result: Unpredictable improvement, no systematic learning
 
+问题："这个上下文效果不好"
+做法："不断尝试不同组合，直到找到效果更好的方案"
+结果：改进不可预测，无法形成系统化学习
+
 ```
 
 **拥有数学基础之后**：
@@ -749,6 +835,10 @@ Result: Unpredictable improvement, no systematic learning
 Problem: "Optimize context assembly function A to maximize E[Reward(C)]"
 Approach: "Apply mathematical optimization with measurable objective function"
 Result: Systematic improvement, reproducible optimization, continuous learning
+
+问题："优化上下文组装函数 A，使其最大化 E[Reward(C)]"
+做法："在可测量目标函数的基础上应用数学优化"
+结果：改进系统化、优化可复现、学习可持续
 
 ```
 
