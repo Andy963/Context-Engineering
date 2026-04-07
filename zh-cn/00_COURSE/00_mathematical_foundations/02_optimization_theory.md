@@ -84,7 +84,7 @@ Goal: Navigate this landscape to find the highest peak (best strategy)
 
 ```
 
-**从零解释**：你可以把优化理解为“爬山”：高度代表质量，我们想找到最高峰，但地形里充满了局部山峰与谷地。数学优化提供了系统化的方法，让我们能更高效地在这片地形中导航并逼近最优解。
+**通俗解释**：你可以把优化理解为“爬山”：高度代表质量，我们想找到最高峰，但地形里充满了局部山峰与谷地。数学优化提供了系统化的方法，让我们能更高效地在这片地形中导航并逼近最优解。
 
 ---
 
@@ -232,7 +232,7 @@ weights = base_weights + α × user_preference_vector + β × performance_feedba
 ```
 </pre>
 
-**从零解释**：这个模板像“工程师设计桥梁”一样引导你设计优化问题：你需要明确成功的定义、必须遵守的约束，以及你愿意接受哪些权衡。
+**通俗解释**：这个模板像“工程师设计桥梁”一样引导你设计优化问题：你需要明确成功的定义、必须遵守的约束，以及你愿意接受哪些权衡。
 
 ### 多目标优化策略模板
 
@@ -336,7 +336,7 @@ weights = base_weights + α × user_preference_vector + β × performance_feedba
 
 ```
 
-**从零解释**：这个 XML 模板用于处理“想要多个目标、但目标之间会冲突”的场景——例如既要全面覆盖、又要足够简洁。它提供了系统化的方法来管理这些权衡，类似项目经理在质量、时间、预算之间做平衡。
+**通俗解释**：这个 XML 模板用于处理“想要多个目标、但目标之间会冲突”的场景——例如既要全面覆盖、又要足够简洁。它提供了系统化的方法来管理这些权衡，类似项目经理在质量、时间、预算之间做平衡。
 
 ### 约束处理策略模板
 
@@ -473,7 +473,7 @@ constraint_optimization_framework:
 
 ```
 
-**从零解释**：这个 YAML 模板提供了一套系统化的“约束处理”方法，就像在复杂项目里用清晰规则管理相互竞争的需求。它帮助你区分哪些是可协商的、哪些是不可妥协的，并以系统化方式处理冲突。
+**通俗解释**：这个 YAML 模板提供了一套系统化的“约束处理”方法，就像在复杂项目里用清晰规则管理相互竞争的需求。它帮助你区分哪些是可协商的、哪些是不可妥协的，并以系统化方式处理冲突。
 
 ---
 
@@ -784,6 +784,8 @@ class GradientBasedOptimizer(ContextOptimizer):
 
 ```
 
+```python
+
 class MultiObjectiveOptimizer(ContextOptimizer):
     """Multi-objective optimization for context assembly"""
 
@@ -1032,7 +1034,9 @@ class AdaptiveContextOptimizer:
         else:
             return 'gradient'
 
-**从零解释**：这个编程框架提供了多种优化算法，就像“不同工作用不同工具”：平滑问题用梯度法更高效，多目标问题用进化方法更稳健，而每次评估代价很高时，贝叶斯优化更节省采样次数。
+```
+
+**通俗解释**：这个编程框架提供了多种优化算法，就像“不同工作用不同工具”：平滑问题用梯度法更高效，多目标问题用进化方法更稳健，而每次评估代价很高时，贝叶斯优化更节省采样次数。
 
 ---
 
@@ -1045,6 +1049,7 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
 ```text
 
 /optimize.context.adaptive{
+    // 通过学习和适应持续改进上下文优化
     intent="Continuously improve context optimization through learning and adaptation",
 
     input={
@@ -1072,6 +1077,7 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
 
     process=[
         /analyze.optimization.landscape{
+            // 系统地分析该优化问题的结构与特性
             action="Systematically analyze the optimization problem structure and characteristics",
             method="Multi-dimensional problem analysis with pattern recognition",
             analysis_dimensions=[
@@ -1086,10 +1092,12 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
                 {expensive_evaluations="Recognize when surrogate-model approaches are beneficial"},
                 {multi_objective_trade_offs="Identify competing objectives requiring Pareto optimization"}
             ],
+            // 对问题给出全面刻画，并提出优化策略建议
             output="Comprehensive problem characterization with optimization strategy recommendations"
         },
 
         /select.optimization.strategy{
+            // 基于问题分析结果和历史表现，选择最优的优化方法
             action="Choose optimal optimization approach based on problem analysis and historical performance",
             method="Adaptive strategy selection with performance-based learning",
             strategy_selection_criteria=[
@@ -1105,10 +1113,12 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
                 {hybrid_approaches="Combinations of methods for multi-stage optimization"},
                 {adaptive_methods="Self-tuning algorithms that adjust during optimization"}
             ],
+            // 输出选定的优化策略，并附带置信度评估和备选方案
             output="Selected optimization strategy with confidence assessment and backup plans"
         },
 
         /execute.adaptive.optimization{
+            // 在实时监控和动态调整下执行选定的优化策略
             action="Implement selected optimization strategy with real-time monitoring and adjustment",
             method="Dynamic optimization execution with performance feedback integration",
             execution_monitoring=[
@@ -1123,10 +1133,12 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
                 {constraint_relaxation="Temporarily relax constraints if no feasible solution exists"},
                 {multi_restart="Launch multiple optimization runs with different initializations"}
             ],
+            // 输出优化后的上下文组装结果，以及性能指标和调整历史
             output="Optimized context assembly with performance metrics and adaptation history"
         },
 
         /validate.optimization.quality{
+            // 全面评估优化结果，并验证解的质量
             action="Comprehensively assess optimization results and validate solution quality",
             method="Multi-dimensional quality assessment with robustness testing",
             validation_dimensions=[
@@ -1141,10 +1153,12 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
                 {convergence_quality="Evaluate whether optimization converged to good solution"},
                 {computational_efficiency="Measure optimization cost relative to improvement achieved"}
             ],
+            // 输出全面的质量评估结果，并附带置信区间和改进建议
             output="Comprehensive quality assessment with confidence intervals and recommendations"
         },
 
         /learn.optimization.patterns{
+            // 从优化经验中提炼洞见与模式，用于后续持续改进
             action="Extract insights and patterns from optimization experience for future improvement",
             method="Pattern recognition and knowledge extraction from optimization history",
             learning_mechanisms=[
@@ -1159,6 +1173,7 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
                 {hybrid_method_development="Create new optimization approaches combining successful elements"},
                 {meta_optimization="Optimize the optimization process itself"}
             ],
+            // 输出更新后的优化知识库，以改进后续的策略选择与执行
             output="Updated optimization knowledge base with improved strategy selection and execution"
         }
     ],
@@ -1208,61 +1223,58 @@ Protocols 提供“可自我改进”的优化系统：它会学习哪些方法�
 
 ```
 
-**从零解释**：这个 protocol 构建了一套“会学习的优化系统”，它会像经验丰富的工匠一样逐渐形成对“不同问题该用什么技术更有效”的直觉，并基于历史效果持续改进自己的方法。
+**通俗解释**：这个 protocol 构建了一套“会学习的优化系统”，它会像经验丰富的工匠一样逐渐形成对“不同问题该用什么技术更有效”的直觉，并基于历史效果持续改进自己的方法。
 
 ---
 
-## 研究连接与未来方向
+## Research Connections and Future Directions
 
-### 与 Context Engineering Survey 的连接
+### Connection to Context Engineering Survey
 
-本优化理论模块直接实现并扩展了 [Context Engineering Survey](https://arxiv.org/pdf/2507.13334) 中的关键概念：
+This optimization theory module directly implements and extends key concepts from the [Context Engineering Survey](https://arxiv.org/pdf/2507.13334):
 
-**Context Optimization Foundations (§4.2 & §4.3)**：
+**Context Optimization Foundations (§4.2 & §4.3)**:
+- Implements systematic approaches to context processing optimization through mathematical formalization
+- Extends context management techniques through multi-objective optimization frameworks
+- Addresses computational complexity challenges through adaptive algorithm selection
 
-- 通过数学形式化实现上下文处理优化的系统化方法
-- 通过多目标优化框架扩展上下文管理技术
-- 通过自适应算法选择应对计算复杂度挑战
+**Scaling Law Applications (§7.1)**:
+- Demonstrates theoretical foundations for context optimization addressing O(n²) computational challenges
+- Implements compositional understanding frameworks through parameter optimization
+- Provides mathematical basis for context quality optimization under resource constraints
 
-**Scaling Law Applications (§7.1)**：
+**Production Deployment Challenges (§7.3)**:
+- Addresses scalability requirements through efficient optimization algorithms
+- Implements resource optimization strategies for computational budget management
+- Provides frameworks for real-time context optimization in production environments
 
-- 展示用于应对 O(n²) 计算挑战的上下文优化理论基础
-- 通过参数优化实现 compositional understanding 框架
-- 为资源约束下的上下文质量优化提供数学依据
+### Novel Contributions Beyond Current Research
 
-**Production Deployment Challenges (§7.3)**：
+**Mathematical Optimization Framework for Context Engineering**: While the survey covers context techniques, our systematic mathematical optimization approach F* = arg max F(A, c₁, ..., c₆) represents novel research into rigorous optimization foundations for context assembly, enabling automatic discovery of optimal strategies.
 
-- 通过高效优化算法满足可扩展性要求
-- 通过资源优化策略管理计算预算
-- 为生产环境中的实时上下文优化提供框架
+**Multi-Paradigm Optimization Integration**: The unified integration of gradient-based, evolutionary, and Bayesian optimization approaches specifically for context assembly extends beyond current research by providing comprehensive optimization strategies tailored to context engineering characteristics.
 
-### 超越现有研究的新增贡献
+**Adaptive Algorithm Selection**: Our self-learning optimization system that automatically selects the best algorithm based on problem characteristics and historical performance represents frontier research into meta-optimization for context engineering applications.
 
-**Mathematical Optimization Framework for Context Engineering**：survey 覆盖了大量上下文技术，但我们提出的系统化数学优化路径 `F* = arg max F(A, c₁, ..., c₆)` 更强调“组装过程的严谨优化基础”，从而支持自动发现最优策略。
+**Real-time Optimization Protocols**: The integration of optimization into adaptive protocols that learn and evolve represents advancement beyond static optimization approaches toward dynamic, self-improving context optimization systems.
 
-**Multi-Paradigm Optimization Integration**：把梯度法、进化算法与贝叶斯优化统一整合，并针对 context assembly 做特化，使优化策略更全面，也更贴合 context engineering 的问题特征。
+### Future Research Directions
 
-**Adaptive Algorithm Selection**：根据问题特征与历史表现自动选择最佳算法的自学习优化系统，属于面向 context engineering 的 meta-optimization 前沿方向。
+**Quantum-Inspired Optimization**: Exploring optimization approaches inspired by quantum annealing and quantum algorithms, where multiple optimization paths can be explored simultaneously through superposition, potentially enabling more efficient navigation of complex context assembly landscapes.
 
-**Real-time Optimization Protocols**：把优化融入可学习、可演化的自适应 protocol，使系统从“静态优化”走向“动态、自我改进”的上下文优化体系。
+**Neuromorphic Optimization**: Optimization algorithms inspired by biological neural networks with continuous activation and synaptic plasticity, enabling more natural and adaptive optimization processes that mirror how biological systems optimize information processing.
 
-### 未来研究方向
+**Distributed Context Optimization**: Research into optimization frameworks that can coordinate across multiple distributed context engineering systems, enabling collaborative optimization where different systems share optimization insights and strategies.
 
-**Quantum-Inspired Optimization**：探索受量子退火与量子算法启发的优化方法，通过“叠加”同时探索多条优化路径，可能更高效地穿越复杂的 context assembly 优化地形。
+**Meta-Context Optimization**: Investigation of optimization systems that can reason about and optimize their own optimization processes, creating recursive improvement loops where optimization algorithms evolve their own mathematical foundations and strategy selection mechanisms.
 
-**Neuromorphic Optimization**：借鉴生物神经网络的连续激活与突触可塑性，构建更自然、更自适应的优化过程，模拟生物系统优化信息处理的方式。
+**Human-AI Collaborative Optimization**: Development of optimization frameworks that incorporate human intuition and preferences into the mathematical optimization process, creating hybrid optimization systems that leverage both human insight and computational power.
 
-**Distributed Context Optimization**：研究可跨分布式 context engineering 系统协同的优化框架，使多个系统能够共享优化洞见与策略，形成协作式优化。
+**Temporal Optimization Dynamics**: Research into time-dependent optimization where context assembly strategies and quality metrics evolve over time, requiring dynamic optimization frameworks that adapt to changing temporal contexts and user needs.
 
-**Meta-Context Optimization**：研究能够推理并优化“自身优化过程”的系统，形成递归式改进闭环，使优化算法能够演化其数学基础与策略选择机制。
+**Uncertainty-Aware Optimization**: Advanced research into optimization under uncertainty where context components, user preferences, and environmental conditions are uncertain, requiring robust optimization approaches that maintain effectiveness despite incomplete information.
 
-**Human-AI Collaborative Optimization**：发展将人类直觉与偏好纳入数学优化过程的框架，构建同时利用人类洞见与计算能力的混合优化系统。
-
-**Temporal Optimization Dynamics**：研究时间依赖的优化问题：组装策略与质量指标随时间演化，需要能适配时序变化与用户需求的动态优化框架。
-
-**Uncertainty-Aware Optimization**：研究不确定性下的优化：上下文组件、用户偏好与环境条件存在不确定性，需要鲁棒优化方法在信息不完备时仍能保持有效性。
-
-**Multi-Scale Optimization**：研究可同时在多个尺度（组件级、组装级、系统级）优化 context assembly 的框架，并在所有尺度上保持一致性与效率。
+**Multi-Scale Optimization**: Investigation of optimization frameworks that can simultaneously optimize context assembly at multiple scales (component level, assembly level, system level) while maintaining coherence and efficiency across all scales.
 
 ---
 
