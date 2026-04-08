@@ -7,37 +7,37 @@
 
 ---
 
-## Learning Objectives
+## 学习目标
 
-By the end of this module, you will understand and implement:
+完成本模块后，你将理解并能够实现：
 
-- **Reasoning Chain Architectures**: Chain-of-thought, tree-of-thought, and graph-of-thought patterns
-- **Strategic Prompt Design**: Role-based prompting, few-shot learning, and meta-prompting
-- **Advanced Reasoning Techniques**: Self-consistency, reflection, and iterative refinement
-- **Prompt Optimization Systems**: Automatic prompt generation and performance-based evolution
+- **推理链架构**：Chain-of-thought、tree-of-thought 与 graph-of-thought 模式
+- **策略性 Prompt 设计**：基于角色的提示、few-shot learning 与 meta-prompting
+- **高级推理技术**：self-consistency、reflection 与迭代式 refinement
+- **Prompt 优化系统**：自动化 prompt 生成与基于性能的演化
 
 ---
 
-## Conceptual Progression: Instructions to Intelligent Reasoning
+## 概念演进：从指令到智能推理
 
-Think of prompt engineering like teaching someone to think through problems - from giving simple instructions, to showing examples, to teaching structured reasoning methods, to creating thinking systems that can adapt and improve.
+可以把 prompt engineering 理解为教一个人如何思考问题的过程：从给出简单指令，到展示示例，再到教授结构化推理方法，最终发展为能够自适应并持续改进的思维系统。
 
-### Stage 1: Direct Instruction
+### 阶段 1：直接指令
 ```
 "Translate this text to French: [text]"
 ```
-**Context**: Like giving a direct command. Works for simple, well-defined tasks but limited by the clarity and completeness of the instruction.
+**上下文**：就像直接下达命令。它适用于简单、定义清晰的任务，但效果受限于指令本身的清晰度和完整性。
 
-### Stage 2: Example-Based Learning  
+### 阶段 2：基于示例的学习
 ```
 "Translate to French. Examples:
 English: Hello → French: Bonjour
 English: Thank you → French: Merci
 Now translate: [text]"
 ```
-**Context**: Like showing someone how to do something by example. Much more effective because it demonstrates the desired pattern and quality.
+**上下文**：就像通过示例教别人做事。它更有效，因为它直接展示了期望的模式与质量标准。
 
-### Stage 3: Structured Reasoning
+### 阶段 3：结构化推理
 ```
 "Translate to French using this process:
 1. Identify key words and phrases
@@ -46,17 +46,17 @@ Now translate: [text]"
 4. Verify natural flow and correctness
 Now translate: [text]"
 ```
-**Context**: Like teaching a methodology. Provides a systematic approach that can handle more complex and varied situations.
+**上下文**：就像在教授一种方法论。它提供了系统化路径，能够处理更复杂、更多样的情况。
 
-### Stage 4: Role-Based Expertise
+### 阶段 4：基于角色的专业能力
 ```
 "You are an expert French translator with 20 years of experience in literary translation. 
 Consider cultural nuances, maintain stylistic consistency, and preserve the author's voice.
 Translate: [text]"
 ```
-**Context**: Like consulting with a specialist. Activates relevant knowledge and establishes appropriate context and expectations.
+**上下文**：就像在咨询一位专家。它能够激活相关知识，并建立合适的上下文与预期。
 
-### Stage 5: Adaptive Reasoning Systems
+### 阶段 5：自适应推理系统
 ```
 Meta-Cognitive Translation System:
 - Analyze text complexity and domain
@@ -65,42 +65,42 @@ Meta-Cognitive Translation System:
 - Evaluate and refine output quality
 - Learn from feedback for future improvements
 ```
-**Context**: Like having a translation expert who can think about their own thinking process, adapt their approach based on the specific challenge, and continuously improve their methods.
+**上下文**：就像拥有一位翻译专家，他不仅能思考问题本身，还能反思自己的思考过程，针对具体挑战调整方法，并持续优化自己的工作方式。
 
 ---
 
-## Mathematical Foundations of Prompt Engineering
+## Prompt Engineering 的数学基础
 
-### Prompt Effectiveness Function
-Building on our context formalization:
+### Prompt 有效性函数
+在前面上下文形式化的基础上：
 ```
 P(Y* | Prompt, Context) = f(Prompt_Structure, Information_Density, Reasoning_Guidance)
 ```
 
-Where:
-- **Prompt_Structure**: How the prompt organizes information and reasoning
-- **Information_Density**: Amount of relevant information per token
-- **Reasoning_Guidance**: How well the prompt guides model reasoning
+其中：
+- **Prompt_Structure**：prompt 如何组织信息与推理过程
+- **Information_Density**：每个 token 所承载的相关信息量
+- **Reasoning_Guidance**：prompt 对模型推理的引导程度
 
-### Chain-of-Thought Formalization
+### Chain-of-Thought 形式化
 ```
 CoT(Problem) = Decompose(Problem) → Reason(Step₁) → Reason(Step₂) → ... → Synthesize(Solution)
 
 Where each Reason(Stepᵢ) = Analyze(Stepᵢ) + Apply(Knowledge) + Generate(Insight)
 ```
 
-**Intuitive Explanation**: Chain-of-thought breaks complex problems into manageable steps, with each step building on previous insights. It's like having a structured conversation with yourself to work through a problem.
+**直观解释**：Chain-of-thought 会把复杂问题拆分成可处理的小步骤，并让每一步都建立在之前的洞见之上。它就像你在和自己进行一场结构化对话，逐步把问题想清楚。
 
-### Few-Shot Learning Optimization
+### Few-Shot Learning 优化
 ```
 Few-Shot_Effectiveness = Σᵢ Similarity(Exampleᵢ, Target) × Quality(Exampleᵢ) × Diversity(Examples)
 ```
 
-**Intuitive Explanation**: Good few-shot examples should be similar enough to the target task to be relevant, high-quality to demonstrate excellence, and diverse enough to show the range of possible approaches.
+**直观解释**：好的 few-shot 示例需要同时满足三个条件：与目标任务足够相似、质量足够高以展示优秀范式、并且足够多样以覆盖可能的方法空间。
 
 ---
 
-## Advanced Prompt Architecture Patterns
+## 高级 Prompt 架构模式
 
 ### 1. Chain-of-Thought (CoT) Reasoning
 
@@ -153,7 +153,7 @@ Let me work through this systematically:
 **Final Answer**: [complete solution with reasoning summary]
 ```
 
-**Ground-up Explanation**: This template transforms the simple "let's think step by step" into a comprehensive reasoning framework. It's like having a master problem-solver guide your thinking process, ensuring you don't skip crucial steps and that your reasoning is transparent and verifiable.
+**基础解释**：这个模板把简单的 “let's think step by step” 扩展成了一个完整的推理框架。它就像有一位问题求解大师在引导你的思考过程，确保你不会遗漏关键步骤，并且让整个推理过程透明、可验证。
 
 ### 2. Tree-of-Thought (ToT) Reasoning
 
@@ -216,7 +216,7 @@ reflection:
   learning_insights: "{what_this_problem_taught_about_reasoning}"
 ```
 
-**Ground-up Explanation**: Tree-of-thought is like having multiple expert consultants each propose different approaches to a problem, then carefully evaluating each path before choosing the best one. It prevents tunnel vision and ensures you consider multiple angles before committing to a solution.
+**基础解释**：Tree-of-thought 就像让多位专家分别为同一个问题提出不同思路，然后在真正选定方案前，对每条路径进行仔细评估。它能避免思维隧道效应，保证你在定案前认真考虑多个角度。
 
 ### 3. Graph-of-Thought (GoT) Integration
 
@@ -308,11 +308,11 @@ reflection:
 }
 ```
 
-**Ground-up Explanation**: Graph-of-thought creates a knowledge network where ideas, evidence, and insights are all connected. It's like having a mind map that shows not just what you're thinking, but how all your thoughts relate to each other and support or conflict with your conclusions.
+**基础解释**：Graph-of-thought 构建的是一个知识网络，在其中想法、证据与洞见彼此连接。它就像一张思维导图，不仅展示你在想什么，也展示这些想法之间如何相互关联，以及它们如何支持或冲突于你的结论。
 
 ---
 
-## Software 3.0 Paradigm 1: Prompts (Advanced Templates)
+## Software 3.0 范式 1：Prompts（高级模板）
 
 ### Meta-Prompting Framework
 
@@ -415,9 +415,9 @@ reflection:
 </meta_prompt_template>
 ```
 
-**Ground-up Explanation**: This meta-prompting system is like having a master teacher who can analyze any problem and instantly create the perfect teaching approach for that specific challenge. It doesn't just use one-size-fits-all prompts, but crafts customized reasoning guidance based on what the problem actually requires.
+**基础解释**：这个 meta-prompting 系统就像拥有一位大师级教师，能够分析任何问题，并立刻为该类挑战生成最合适的教学方式。它不会套用千篇一律的 prompt，而是根据问题的真实需求定制推理引导。
 
-### Advanced Few-Shot Learning Architecture
+### 高级 Few-Shot Learning 架构
 
 ```markdown
 # Intelligent Few-Shot Example Selection Framework
@@ -484,13 +484,13 @@ Now apply these demonstrated patterns to your specific task:
 [Space for applying learned patterns to current task]
 ```
 
-**Ground-up Explanation**: This few-shot framework is like having a master craftsperson show you not just one way to do something, but the full spectrum of skill from basic competence to masterful handling of difficult cases. It teaches both the technique and the judgment about when to apply different approaches.
+**基础解释**：这个 few-shot 框架就像一位工艺大师，不仅向你展示一种做法，而是把从基础胜任到高难场景熟练掌控的完整技能谱系都展示出来。它教给你的不只是技巧本身，还有何时该采用何种方法的判断力。
 
 ---
 
-## Software 3.0 Paradigm 2: Programming (Prompt Optimization Systems)
+## Software 3.0 范式 2：Programming（Prompt 优化系统）
 
-### Automated Prompt Evolution Engine
+### 自动化 Prompt 演化引擎
 
 ```python
 import numpy as np
@@ -937,15 +937,15 @@ class PromptOptimizationDemo:
         return min(1.0, max(0.0, score))
 ```
 
-**Ground-up Explanation**: This prompt evolution system works like having a team of prompt engineers that can rapidly test thousands of variations and learn which approaches work best. It's like natural selection for prompts - the most effective ones survive and reproduce, while ineffective ones are replaced by better variants.
+**基础解释**：这个 prompt 演化系统就像拥有一支 prompt 工程团队，能够快速测试成千上万种变体，并学习哪些方法效果最好。它就像 prompt 的自然选择机制，最有效的会被保留和繁殖，而低效的会被更优变体取代。
 
-The system doesn't just randomly try things; it uses intelligent mutation strategies (changing structure, examples, reasoning guidance) and crossover techniques (combining the best parts of successful prompts) to systematically improve prompt effectiveness.
+这个系统并不是在随机试错；它会利用智能变异策略（调整结构、示例、推理引导）和交叉技术（组合成功 prompt 中最有效的部分），系统性地提升 prompt 的效果。
 
 ---
 
-## Software 3.0 Paradigm 3: Protocols (Self-Improving Reasoning Systems)
+## Software 3.0 范式 3：Protocols（自我改进的推理系统）
 
-### Adaptive Reasoning Protocol
+### 自适应推理协议
 
 ```
 /reasoning.adaptive{
@@ -1099,9 +1099,9 @@ The system doesn't just randomly try things; it uses intelligent mutation strate
 }
 ```
 
-**Ground-up Explanation**: This adaptive reasoning protocol creates a thinking system that can think about its own thinking. Like having a master problem-solver who not only knows many different reasoning techniques, but can analyze each problem to choose the best approach, monitor their own thinking process, and continuously learn from experience to get better at solving future problems.
+**基础解释**：这个自适应推理协议构建出了一套能够“思考自己如何思考”的系统。它就像一位问题求解大师，不仅掌握多种推理技术，还能分析每个问题、选择最佳路径、监控自己的思考过程，并从经验中持续学习，在未来解决问题时变得更强。
 
-### Self-Refining Prompt Protocol
+### 自我精炼 Prompt 协议
 
 ```yaml
 # Self-Refining Prompt Evolution Protocol
@@ -1243,13 +1243,13 @@ implementation_framework:
     expert_review: "Periodic assessment by domain experts for quality validation"
 ```
 
-**Ground-up Explanation**: This self-refining system creates prompts that evolve like living systems. They start with a basic form, monitor their own performance, learn from feedback, and continuously adapt to become more effective. It's like having a prompt that can learn from every interaction and gradually become the perfect communication tool for its specific purpose.
+**基础解释**：这个自我精炼系统会让 prompt 像生命体一样演化。它们从基础形态开始，监控自身表现，从反馈中学习，并持续适应，从而变得越来越有效。它就像一个能够从每次交互中学习、逐渐成为特定任务最优沟通工具的 prompt。
 
 ---
 
-## Advanced Reasoning Techniques Implementation
+## 高级推理技术实现
 
-### Self-Consistency with Multiple Reasoning Paths
+### 多推理路径下的 Self-Consistency
 
 ```python
 class SelfConsistencyReasoning:
@@ -1558,13 +1558,13 @@ def demonstrate_advanced_reasoning():
     return synthesis_result, reflection_result
 ```
 
-**Ground-up Explanation**: These advanced reasoning techniques work like having multiple expert consultants approach the same problem independently (self-consistency), then having a master synthesizer combine their insights. The reflective reasoning is like having a quality control expert who reviews your thinking process and helps you improve it through multiple iterations.
+**基础解释**：这些高级推理技术就像让多位专家各自独立分析同一个问题（self-consistency），再由一位综合者整合他们的洞见。反思式推理则像一位质量控制专家，审查你的思考过程，并通过多轮迭代帮助你不断改进。
 
 ---
 
-## Real-World Applications and Case Studies
+## 真实世界应用与案例研究
 
-### Case Study: Medical Diagnosis Reasoning Chain
+### 案例研究：医疗诊断推理链
 
 ```python
 def medical_diagnosis_reasoning_example():
@@ -1648,7 +1648,7 @@ def medical_diagnosis_reasoning_example():
     
     return formatted_prompt
 
-### Case Study: Legal Analysis Reasoning Chain
+### 案例研究：法律分析推理链
 
 def legal_analysis_reasoning_example():
     """Advanced prompting for legal analysis"""
@@ -1724,13 +1724,13 @@ Apply rigorous legal reasoning methodology while acknowledging limitations.
 - This constitutes legal research, not legal advice
 ```
 
-**Ground-up Explanation**: This legal reasoning framework mirrors how experienced attorneys think through complex cases - systematically identifying issues, researching applicable law, applying facts to legal standards, considering opposing arguments, and reaching reasoned conclusions with appropriate caveats about uncertainty.
+**基础解释**：这个法律推理框架高度贴近资深律师处理复杂案件的方式：系统识别问题、检索适用法律、将事实对应到法律标准、考虑对立论点，并在保留适当不确定性说明的前提下形成有根据的结论。
 
 ---
 
-## Advanced Pattern Recognition and Meta-Prompting
+## 高级模式识别与 Meta-Prompting
 
-### Pattern-Based Prompt Generation
+### 基于模式的 Prompt 生成
 
 ```python
 class PromptPatternLibrary:
@@ -1980,13 +1980,13 @@ def demonstrate_pattern_selection():
         print("-" * 30)
 ```
 
-**Ground-up Explanation**: This pattern library works like having a master prompt designer who can analyze any task and automatically select the best reasoning framework. Instead of using one-size-fits-all prompts, it matches the prompt structure to what the specific task actually needs - creative exploration for innovation, analytical reasoning for data problems, diagnostic frameworks for troubleshooting, etc.
+**基础解释**：这个模式库就像拥有一位 prompt 设计大师，能够分析任何任务并自动选择最合适的推理框架。它不会使用千篇一律的 prompt，而是把 prompt 结构匹配到任务真正需要的形式，例如创新任务用创意探索框架、数据问题用分析推理框架、排障问题用诊断框架等。
 
 ---
 
-## Evaluation and Optimization Framework
+## 评估与优化框架
 
-### Comprehensive Prompt Evaluation System
+### 综合 Prompt 评估系统
 
 ```python
 import numpy as np
@@ -2355,16 +2355,16 @@ def demonstrate_prompt_evaluation():
     return evaluator.evaluation_history
 ```
 
-**Ground-up Explanation**: This evaluation framework works like having a team of prompt engineering experts systematically assess every aspect of prompt quality. It looks at clarity (is it easy to understand?), completeness (does it provide enough guidance?), effectiveness (does it work well?), consistency (does it work reliably?), adaptability (does it handle different situations?), and efficiency (is it concise but complete?).
+**基础解释**：这个评估框架就像拥有一支 prompt engineering 专家团队，系统化审视 prompt 质量的每一个维度。它关注清晰度（是否易于理解）、完整性（是否给出了足够引导）、有效性（是否真正有效）、一致性（是否表现稳定）、适应性（是否能处理不同场景）以及效率（是否在简洁的同时保持完整）。
 
-The system not only scores prompts but provides specific, actionable recommendations for improvement - like having a personal prompt engineering coach.
+这个系统不仅会给 prompt 打分，还会提供具体、可执行的改进建议，就像拥有一位私人 prompt engineering 教练。
 
 ---
 
-## Practical Exercises and Implementation Challenges
+## 实践练习与实现挑战
 
-### Exercise 1: Chain-of-Thought Implementation
-**Goal**: Build a sophisticated chain-of-thought reasoning system
+### 练习 1：Chain-of-Thought 实现
+**目标**：构建一个复杂的 chain-of-thought 推理系统
 
 ```python
 # Your implementation challenge
@@ -2399,10 +2399,10 @@ builder = ChainOfThoughtBuilder()
 # Optimize based on simulated feedback
 ```
 
-## Practical Exercises and Implementation Challenges 
+## 实践练习与实现挑战
 
-### Exercise 2: Adaptive Prompt Evolution
-**Goal**: Create a system that automatically improves prompts based on performance
+### 练习 2：自适应 Prompt 演化
+**目标**：创建一个能够基于性能自动改进 prompt 的系统
 
 ```python
 class PromptEvolutionSystem:
@@ -2434,8 +2434,8 @@ class PromptEvolutionSystem:
 evolution_system = PromptEvolutionSystem()
 ```
 
-### Exercise 3: Meta-Prompting Framework
-**Goal**: Build prompts that can generate other prompts for specific tasks
+### 练习 3：Meta-Prompting Framework
+**目标**：构建能够为特定任务生成其他 prompt 的 prompt
 
 ```python
 class MetaPromptGenerator:
@@ -2468,9 +2468,9 @@ meta_generator = MetaPromptGenerator()
 
 ---
 
-## Integration with Context Engineering Framework
+## 与 Context Engineering 框架的集成
 
-### Prompt Engineering in the Context Assembly Pipeline
+### 上下文组装流水线中的 Prompt Engineering
 
 ```python
 def integrate_prompt_engineering_with_context():
@@ -2557,37 +2557,37 @@ def select_optimal_prompt_for_context(query: str, context_type: str,
     return customized_prompt
 ```
 
-**Ground-up Explanation**: This integration shows how advanced prompting techniques become part of the larger context engineering system. Instead of static prompts, we have dynamic prompt selection that adapts based on the type of query, available context, and task requirements.
+**基础解释**：这个集成展示了高级提示技术如何成为更大 Context Engineering 系统的一部分。我们不再使用静态 prompt，而是根据查询类型、可用上下文和任务需求进行动态 prompt 选择。
 
 ---
 
-## Research Connections and Advanced Applications
+## 研究关联与高级应用
 
-### Connection to Context Engineering Research
+### 与 Context Engineering 研究的关联
 
 **Chain-of-Thought and Context Processing (§4.2)**:
-- Our reasoning chain implementations directly extend CoT research from the survey
-- Integration with self-consistency and reflection mechanisms
-- Advanced reasoning guidance as part of context processing pipeline
+- 我们的推理链实现直接扩展了 survey 中的 CoT 研究
+- 与 self-consistency 和 reflection 机制的集成
+- 将高级推理引导作为上下文处理流水线的一部分
 
 **Dynamic Context Assembly Integration**:
-- Prompts become intelligent components in context assembly
-- Task-aware prompt selection based on information needs analysis
-- Reasoning guidance integrated with knowledge retrieval optimization
+- Prompts 成为上下文组装中的智能组件
+- 基于信息需求分析进行任务感知的 prompt 选择
+- 将推理引导与知识检索优化整合在一起
 
-### Novel Contributions Beyond Current Research
+### 超越当前研究的新贡献
 
-**Adaptive Prompt Evolution**: Our evolutionary prompt optimization represents novel research into prompts that improve themselves through performance feedback and systematic mutation strategies.
+**Adaptive Prompt Evolution**：我们的演化式 prompt 优化代表了一条新的研究方向，即 prompt 能够通过性能反馈和系统化变异策略实现自我改进。
 
-**Meta-Cognitive Prompting**: The integration of meta-reasoning into prompt design goes beyond current CoT research to create prompts that can monitor and improve their own reasoning processes.
+**Meta-Cognitive Prompting**：把元推理整合进 prompt 设计，已经超出了当前 CoT 研究的范围，使 prompt 能够监控并改进自身的推理过程。
 
-**Context-Aware Prompt Selection**: Dynamic prompt generation based on available context and task characteristics represents a new paradigm in prompt engineering.
+**Context-Aware Prompt Selection**：基于可用上下文和任务特征的动态 prompt 生成，代表了 prompt engineering 中的一种新范式。
 
 ---
 
-## Performance Benchmarks and Evaluation
+## 性能基准与评估
 
-### Advanced Prompt Performance Metrics
+### 高级 Prompt 性能指标
 
 ```python
 class AdvancedPromptBenchmarking:
@@ -2739,56 +2739,56 @@ def run_prompt_technique_benchmark():
 benchmark_results = run_prompt_technique_benchmark()
 ```
 
-**Ground-up Explanation**: This benchmarking system works like having a standardized test for different prompting approaches. It evaluates how well each technique performs across different types of tasks (reasoning, knowledge integration, creative problem-solving) and measures both average performance and consistency.
+**基础解释**：这个基准测试系统就像一套针对不同 prompting 方法的标准化考试。它评估每种技术在不同任务类型上（推理、知识整合、创造性问题求解）的表现，并衡量平均性能与一致性。
 
 ---
 
-## Summary and Next Steps
+## 总结与下一步
 
-### Core Concepts Mastered
+### 已掌握的核心概念
 
-**Advanced Reasoning Architectures**:
-- Chain-of-thought reasoning with systematic step-by-step guidance
-- Tree-of-thought exploration of multiple reasoning paths
-- Graph-of-thought integration of interconnected concepts
-- Self-consistency through multiple reasoning attempts
-- Reflective reasoning with iterative improvement
+**高级推理架构**：
+- 结合系统化逐步引导的 chain-of-thought 推理
+- 对多条推理路径进行探索的 tree-of-thought
+- 用于整合相互关联概念的 graph-of-thought
+- 通过多次独立推理实现 self-consistency
+- 通过迭代改进实现 reflective reasoning
 
-**Strategic Prompt Design**:
-- Role-based prompting for context activation
-- Few-shot learning with intelligent example selection
-- Meta-prompting for generating task-specific prompts
-- Pattern-based prompt generation and customization
+**策略性 Prompt 设计**：
+- 用于激活上下文的 role-based prompting
+- 结合智能示例选择的 few-shot learning
+- 用于生成任务定制 prompt 的 meta-prompting
+- 基于模式的 prompt 生成与定制化
 
-**Optimization and Evolution**:
-- Automated prompt evolution through performance feedback
-- Comprehensive evaluation frameworks
-- Performance benchmarking across multiple dimensions
-- Continuous improvement through systematic refinement
+**优化与演化**：
+- 基于性能反馈的自动化 prompt 演化
+- 综合评估框架
+- 面向多维指标的性能基准测试
+- 通过系统化精炼实现持续改进
 
-### Software 3.0 Integration
+### Software 3.0 集成
 
-**Prompts**: Advanced templates that guide sophisticated reasoning processes
-**Programming**: Evolutionary systems that optimize prompt effectiveness automatically  
-**Protocols**: Self-improving reasoning systems that adapt based on performance
+**Prompts**：用于引导复杂推理过程的高级模板
+**Programming**：能够自动优化 prompt 效果的演化系统
+**Protocols**：基于性能进行自适应的自我改进推理系统
 
-### Implementation Skills
+### 实现能力
 
-- Design and implement complex reasoning chain architectures
-- Build automated prompt optimization and evolution systems
-- Create comprehensive prompt evaluation and benchmarking frameworks
-- Integrate advanced prompting with broader context engineering systems
+- 设计并实现复杂的推理链架构
+- 构建自动化的 prompt 优化与演化系统
+- 创建综合性的 prompt 评估与基准测试框架
+- 将高级 prompting 技术整合进更广泛的 Context Engineering 系统
 
 ### Research Grounding
 
-Direct implementation of reasoning guidance research (§4.1) with novel extensions into:
-- Evolutionary prompt optimization
-- Meta-cognitive reasoning integration  
-- Dynamic prompt selection based on context characteristics
-- Performance-driven prompt refinement systems
+直接实现推理引导研究（§4.1），并在以下方向上进行了新的扩展：
+- 演化式 prompt 优化
+- 元认知推理集成
+- 基于上下文特征的动态 prompt 选择
+- 由性能驱动的 prompt 精炼系统
 
-**Next Module**: [02_external_knowledge.md](02_external_knowledge.md) - Deep dive into RAG foundations and external knowledge integration, building on prompt engineering to create systems that can dynamically access and integrate vast knowledge sources.
+**Next Module**: [02_external_knowledge.md](02_external_knowledge.md) - 深入学习 RAG 基础与外部知识集成，在 prompt engineering 的基础上构建能够动态访问并整合大规模知识源的系统。
 
 ---
 
-*This module transforms prompt engineering from simple instruction writing into a sophisticated discipline of reasoning system design, creating the foundation for intelligent context orchestration and dynamic knowledge integration.*
+*本模块将 prompt engineering 从简单的指令编写，提升为一门关于推理系统设计的复杂学科，为智能上下文编排与动态知识整合奠定基础。*

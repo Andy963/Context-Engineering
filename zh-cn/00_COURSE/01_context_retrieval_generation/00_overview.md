@@ -1057,7 +1057,7 @@ def medical_diagnosis_context_example():
     return context
 ```
 
-### Performance Evaluation Framework
+### 性能评估框架
 
 ```python
 class ContextGenerationEvaluator:
@@ -1138,14 +1138,14 @@ class ContextGenerationEvaluator:
         return overall
 ```
 
-**Ground-up Explanation**: This evaluation framework works like having a comprehensive quality control system that looks at context generation from multiple angles - not just whether it worked, but how well it worked and how it could be improved.
+**基础解释**：这个评估框架就像一套全面的质量控制系统，会从多个角度审视上下文生成过程，不只关注它是否奏效，还关注它的效果有多好，以及还能如何改进。
 
 ---
 
-## Practical Exercises and Next Steps
+## 实践练习与下一步
 
-### Exercise 1: Build Your Own Retrieval System
-**Goal**: Implement a basic semantic retrieval system
+### 练习 1：构建你自己的检索系统
+**目标**：实现一个基础的语义检索系统
 
 ```python
 # Your implementation template
@@ -1169,8 +1169,8 @@ retriever = BasicRetriever()
 # Test retrieval with different queries
 ```
 
-### Exercise 2: Context Assembly Optimization
-**Goal**: Create a context assembler that optimizes information organization
+### 练习 2：上下文组装优化
+**目标**：创建一个能够优化信息组织方式的上下文组装器
 
 ```python
 class ContextOptimizer:
@@ -1185,30 +1185,30 @@ class ContextOptimizer:
 
 ---
 
-## Summary and Next Steps
+## 总结与下一步
 
-**Core Concepts Mastered**:
-- Evolution from static prompts to dynamic context orchestration
-- Information-theoretic optimization of knowledge retrieval
-- Multi-source retrieval strategies and result fusion
-- Adaptive context assembly with learning integration
-- Comprehensive evaluation of context generation effectiveness
+**已掌握的核心概念**：
+- 从静态提示词演进到动态上下文编排
+- 基于信息论的知识检索优化
+- 多源检索策略与结果融合
+- 结合学习机制的自适应上下文组装
+- 对上下文生成效果进行全面评估
 
-**Software 3.0 Integration**:
-- **Prompts**: Strategic templates for reasoning and knowledge integration
-- **Programming**: Sophisticated retrieval and assembly algorithms
-- **Protocols**: Self-improving context generation systems
+**与 Software 3.0 的集成**：
+- **Prompts**：用于推理与知识整合的战略模板
+- **Programming**：复杂的检索与组装算法
+- **Protocols**：可自我改进的上下文生成系统
 
-**Implementation Skills**:
-- Semantic retrieval using embeddings and vector databases
-- Dynamic context assembly with cognitive load optimization
-- Multi-source information fusion and deduplication
-- Effectiveness evaluation and continuous improvement systems
+**实现能力**：
+- 使用嵌入与向量数据库进行语义检索
+- 结合认知负荷优化的动态上下文组装
+- 多源信息融合与去重
+- 效果评估与持续改进系统
 
-**Research Grounding**: Direct implementation of context generation research (§4.1) with novel extensions into adaptive assembly, multi-source fusion, and self-improving context orchestration.
+**Research Grounding**：直接实现上下文生成研究（§4.1），并在自适应组装、多源融合与自我改进上下文编排方面进行了新的扩展。
 
-**Next Module**: [01_prompt_engineering.md](01_prompt_engineering.md) - Deep dive into advanced prompting techniques, building on context generation foundations to master the art and science of LLM communication.
+**Next Module**：[01_prompt_engineering.md](01_prompt_engineering.md) - 深入学习高级提示技术，在上下文生成基础之上掌握 LLM 沟通的艺术与科学。
 
 ---
 
-*This module establishes the foundation for intelligent context engineering, transforming the simple concept of "prompt" into a sophisticated system for dynamic knowledge orchestration and optimal information assembly.*
+*本模块为智能上下文工程建立了基础，将简单的 “prompt” 概念转化为一个用于动态知识编排与最优信息组装的复杂系统。*
