@@ -1,5 +1,5 @@
-# Dynamic Context Assembly
-## Context Composition Strategies and Intelligent Orchestration
+# 动态上下文组装
+## 上下文组合策略与智能编排
 
 > **Module 01.3** | *Context Engineering Course: From Foundations to Frontier Systems*
 > 
@@ -24,37 +24,37 @@
 
 ### 阶段 1：静态上下文组装
 ```
-Fixed Template + User Query → Response
+固定模板 + 用户查询 → 响应
 ```
 **上下文**：就像填写一张标准表格。它稳定一致，但不够灵活，不管具体情况真正需要什么，使用的都是同一套结构。
 
 ### 阶段 2：基于模板的组装
 ```
-Select Template Based on Query Type → Fill Template → Response
+根据查询类型选择模板 → 填充模板 → 响应
 ```
 **上下文**：就像为不同场景准备了不同的标准表格。它比“一刀切”更好，但仍然受限于预定义结构。
 
 ### 阶段 3：基于组件的组装
 ```
-Query Analysis → Select Components → Assemble Context → Response
+查询分析 → 选择组件 → 组装上下文 → 响应
 ```
 **上下文**：就像拥有一组可以按不同方式组合的模块化积木。它灵活得多，能够根据实际需求形成不同组合。
 
 ### 阶段 4：优化驱动的组装
 ```
-Query Analysis → Multi-Objective Optimization → Optimal Component Selection → 
-    Intelligent Assembly → Performance Monitoring → Response
+查询分析 → 多目标优化 → 最优组件选择 →
+    智能组装 → 性能监控 → 响应
 ```
 **上下文**：就像拥有一位聪明的建筑师，会同时考虑多个因素（空间、成本、美观、功能），为每个具体项目设计最优方案。
 
 ### 阶段 5：自适应动态编排
 ```
-Predictive Context Intelligence:
-- Anticipates information needs based on query patterns
-- Learns optimal assembly strategies from past performance
-- Balances multiple objectives (relevance, completeness, efficiency)
-- Continuously adapts to user preferences and task characteristics
-- Self-monitors and improves assembly quality over time
+预测式上下文智能：
+- 基于查询模式预判信息需求
+- 从过往表现中学习最优组装策略
+- 平衡多个目标（相关性、完整性、效率）
+- 持续适应用户偏好和任务特征
+- 随时间推移自我监控并提升组装质量
 ```
 **上下文**：就像拥有一位 AI 导演，他理解你的思考过程、学习你的偏好、预判你的需求，并持续提升自己为你提供最佳元素组合的能力，从而达到峰值表现。
 
@@ -78,7 +78,7 @@ A* = arg max_A E[Reward(LLM(A(c_1, c_2, ..., c_n)), Y*)] - λ·Cost(A)
 - **Cost**：组装过程中的计算与认知开销
 - **λ**：质量与效率之间的权衡参数
 
-**直观解释**：最优组装函数会找到组合所有可用上下文组件的最佳方式，在尽量减少不必要复杂度的同时，最大化回答质量。它就像一位大厨，清楚地知道该组合哪些食材、各自配比多少，才能做出最完美的一道菜。
+**通俗解释**：最优组装函数会找到组合所有可用上下文组件的最佳方式，在尽量减少不必要复杂度的同时，最大化回答质量。它就像一位大厨，清楚地知道该组合哪些食材、各自配比多少，才能做出最完美的一道菜。
 
 ### 多目标上下文优化
 ```
@@ -93,7 +93,7 @@ subject to: |C| ≤ L_max, Coherence(C) ≥ θ_min
 - **L_max**：上下文长度上限约束
 - **θ_min**：最低连贯性阈值
 
-**直观解释**：上下文组装是一个多目标优化问题，我们希望同时获得最高的相关性、完整性和清晰度，但这些目标有时会相互冲突。最优解就是在给定约束下找到最佳平衡点。
+**通俗解释**：上下文组装是一个多目标优化问题，我们希望同时获得最高的相关性、完整性和清晰度，但这些目标有时会相互冲突。最优解就是在给定约束下找到最佳平衡点。
 
 ### 基于信息论的组装
 ```
@@ -105,7 +105,7 @@ Optimal_Components = arg max_S ∑(i∈S) I(Y*; c_i) - α·∑(i,j∈S) I(c_i; c
 - **I(c_i; c_j)**：组件之间的互信息（冗余度）
 - **α**：冗余惩罚参数
 
-**直观解释**：我们要选择那些对正确答案最有信息价值、同时彼此冗余最少的上下文组件。它就像组建一个团队，希望每个成员都贡献独特而有价值的能力，而不是彼此重复。
+**通俗解释**：我们要选择那些对正确答案最有信息价值、同时彼此冗余最少的上下文组件。它就像组建一个团队，希望每个成员都贡献独特而有价值的能力，而不是彼此重复。
 
 ---
 
@@ -113,46 +113,39 @@ Optimal_Components = arg max_S ∑(i∈S) I(Y*; c_i) - α·∑(i,j∈S) I(c_i; c
 
 ```
                     ┌─────────────────────────────────────────────────────┐
-                    │             CONTEXT ORCHESTRATION LAYER            │
+                    │                上下文编排层                         │
                     │  ┌─────────────────┬─────────────────┬─────────────┐ │
-                    │  │  OPTIMIZATION   │  COMPOSITION    │ ADAPTATION  │ │
-                    │  │    ENGINE       │    MANAGER      │   SYSTEM    │ │
+                    │  │     优化引擎    │    组合管理器    │  自适应系统  │ │
                     │  │                 │                 │             │ │
-                    │  │ • Multi-obj     │ • Component     │ • Learn     │ │
-                    │  │   Optimization  │   Integration   │   Patterns  │ │
-                    │  │ • Quality       │ • Coherence     │ • Adapt     │ │
-                    │  │   Prediction    │   Validation    │   Strategy  │ │
-                    │  │ • Resource      │ • Format        │ • Feedback  │ │
-                    │  │   Management    │   Optimization  │   Loop      │ │
+                    │  │ • 多目标优化    │ • 组件集成      │ • 学习模式    │ │
+                    │  │ • 质量预测      │ • 连贯性校验    │ • 调整策略    │ │
+                    │  │ • 资源管理      │ • 格式优化      │ • 反馈闭环    │ │
                     │  └─────────────────┴─────────────────┴─────────────┘ │
                     └─────────────────────────────────────────────────────┘
                                           ▲
     ┌─────────────────────────────────────────────────────────────────────────────────────┐
-    │                        COMPONENT SELECTION & PROCESSING LAYER                       │
+    │                         组件选择与处理层                                            │
     │  ┌─────────────┬──────────────┬──────────────┬──────────────┬─────────────────────┐ │
-    │  │INSTRUCTIONS │  KNOWLEDGE   │    TOOLS     │   MEMORY     │       EXAMPLES      │ │
+    │  │    指令      │     知识      │     工具      │     记忆      │       示例          │ │
     │  │             │              │              │              │                     │ │
-    │  │• Task Specs │ • Retrieved  │ • Function   │ • Conv       │ • Few-shot          │ │
-    │  │• Constraints│   Documents  │   Schemas    │   History    │ • Demonstrations    │ │
-    │  │• Success    │ • Real-time  │ • API Specs  │ • User       │ • Error Examples    │ │
-    │  │  Criteria   │   Data       │ • Usage      │   Context    │ • Best Practices    │ │
-    │  │• Role Spec  │ • Domain     │   Examples   │ • State      │ • Quality Samples   │ │
-    │  │             │   Knowledge  │              │   Info       │                     │ │
+    │  │• 任务规格    │ • 检索文档    │ • 函数模式    │ • 对话历史    │ • Few-shot         │ │
+    │  │• 约束条件    │ • 实时数据    │ • API 规格    │ • 用户上下文  │ • 演示样例         │ │
+    │  │• 成功标准    │ • 领域知识    │ • 使用示例    │ • 状态信息    │ • 错误示例         │ │
+    │  │• 角色设定    │              │              │              │ • 最佳实践         │ │
+    │  │             │              │              │              │ • 质量样本         │ │
     │  └─────────────┴──────────────┴──────────────┴──────────────┴─────────────────────┘ │
     └─────────────────────────────────────────────────────────────────────────────────────┘
                                           ▲
     ┌─────────────────────────────────────────────────────────────────────────────────────┐
-    │                           CONTEXT COMPONENT SOURCES                                 │
+    │                           上下文组件来源                                             │
     │  ┌─────────────┬──────────────┬──────────────┬──────────────┬─────────────────────┐ │
-    │  │   STATIC    │   DYNAMIC    │   USER       │   SYSTEM     │    LEARNED          │ │
-    │  │  TEMPLATES  │  RETRIEVAL   │   CONTEXT    │    STATE     │   PATTERNS          │ │
+    │  │    静态      │     动态      │     用户      │     系统      │      学习到的        │ │
+    │  │    模板      │     检索      │    上下文     │     状态      │        模式         │ │
     │  │             │              │              │              │                     │ │
-    │  │• Prompt     │ • Vector DB  │ • User       │ • Current    │ • Successful        │ │
-    │  │  Templates  │ • Knowledge  │   Prefs      │   Session    │   Compositions      │ │
-    │  │• Role       │   Graphs     │ • Expertise  │ • Resource   │ • Performance       │ │
-    │  │  Definitions│ • API Calls  │   Level      │   Status     │   History           │ │
-    │  │• Standard   │ • Real-time  │ • Task       │ • Error      │ • Optimization      │ │
-    │  │  Procedures │   Data       │   History    │   Context    │   Insights          │ │
+    │  │• Prompt 模板 │ • 向量数据库  │ • 用户偏好    │ • 当前会话    │ • 成功组合         │ │
+    │  │• 角色定义    │ • 知识图谱    │ • 专业水平    │ • 资源状态    │ • 性能历史         │ │
+    │  │• 标准流程    │ • API 调用    │ • 任务历史    │ • 错误上下文  │ • 优化洞见         │ │
+    │  │             │ • 实时数据    │              │              │                     │ │
     │  └─────────────┴──────────────┴──────────────┴──────────────┴─────────────────────┘ │
     └─────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -1503,12 +1496,12 @@ learning_system = SelfImprovingAssemblySystem()
 
 ### 与 Context Engineering Survey 的关联
 
-**动态组装与上下文处理（§4.2）**：
+**Dynamic Assembly and Context Processing (§4.2)**:
 - 我们的实现把上下文处理从基础组装扩展到了智能编排
 - 将组件选择与性能优化进行了更深入的结合
 - 提出了多目标上下文优化的新方法
 
-**上下文管理挑战（§4.3）**：
+**Context Management Challenges (§4.3)**:
 - 通过智能组件选择来处理上下文窗口管理问题
 - 通过动态组装策略解决激活补充问题
 - 通过自适应组件集成来处理层级化记忆

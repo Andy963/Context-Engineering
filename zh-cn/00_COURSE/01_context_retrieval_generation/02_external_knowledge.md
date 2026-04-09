@@ -1,5 +1,5 @@
-# External Knowledge Integration
-## RAG Foundations and Dynamic Knowledge Orchestration
+# 外部知识集成
+## RAG 基础与动态知识编排
 
 > **Module 01.2** | *Context Engineering Course: From Foundations to Frontier Systems*
 > 
@@ -24,36 +24,36 @@
 
 ### 阶段 1：静态知识库
 ```
-LLM + Fixed Training Data
+LLM + 固定训练数据
 ```
 **上下文**：就像拥有一本内容全面的教科书。它很强大，但能力受限于训练时纳入的内容，存在知识截止时间，也无法访问最新信息。
 
 ### 阶段 2：简单检索
 ```
-Query → Search Database → Return Documents → LLM Processing
+查询 → 搜索数据库 → 返回文档 → LLM 处理
 ```
 **上下文**：就像可以使用图书馆目录。它能找到相关文档，但仍需要人工整合，而且返回的信息可能过多或过少。
 
 ### 阶段 3：语义检索（基础 RAG）
 ```
-Query → Embedding → Vector Similarity Search → Relevant Chunks → Context Assembly
+查询 → Embedding → 向量相似度搜索 → 相关片段 → 上下文组装
 ```
 **上下文**：就像拥有一位真正理解你想找什么的图书管理员。它更擅长找到语义上真正相关的信息，而不只是关键词匹配结果。
 
 ### 阶段 4：多源知识融合
 ```
-Query → Parallel Retrieval from Multiple Sources → Quality Assessment → 
-    Conflict Resolution → Integrated Knowledge Assembly
+查询 → 从多个来源并行检索 → 质量评估 →
+    冲突解决 → 集成式知识组装
 ```
 **上下文**：就像拥有多位专家研究员，他们能迅速从不同专业来源中找到信息，并把各自的发现整合成一份连贯的简报。
 
 ### 阶段 5：动态知识编排
 ```
-Adaptive Knowledge System:
-- Understands information needs at multiple levels
-- Monitors information quality and relevance in real-time
-- Learns from retrieval success patterns
-- Optimizes knowledge assembly for specific tasks and users
+自适应知识系统：
+- 在多个层次上理解信息需求
+- 实时监控信息质量与相关性
+- 从成功检索模式中学习
+- 针对特定任务和用户优化知识组装
 ```
 **上下文**：就像拥有一支 AI 研究团队，它理解你的思考方式、学习你的偏好、预判你的信息需求，并持续提升自己在恰当时机提供恰当知识的能力。
 
@@ -83,7 +83,7 @@ R*(Q, K) = arg max_R I(Y*; R(Q, K)) - λ|R(Q, K)|
 - **λ|R(Q, K)|** 是检索长度的正则项
 - **λ** 用于平衡相关性与简洁性
 
-**直观解释**：最优检索会在保持简洁的同时，找到那些最能帮助我们逼近正确答案的信息。它就像一位完美的研究助理，既能精准找到你需要的东西，又不会用无关细节把你淹没。
+**通俗解释**：最优检索会在保持简洁的同时，找到那些最能帮助我们逼近正确答案的信息。它就像一位完美的研究助理，既能精准找到你需要的东西，又不会用无关细节把你淹没。
 
 ### 语义相似度与向量空间
 ```
@@ -95,7 +95,7 @@ Similarity(q, d) = cosine(E(q), E(d)) = (E(q) · E(d)) / (||E(q)|| ||E(d)||)
 - **E(d)** 是文档 d 的 embedding
 - **cosine** 用于衡量高维空间中的夹角相似度
 
-**直观解释**：embedding 会把文本映射到高维空间中的点，在这个空间里，语义相近的内容会彼此靠近。它就像一张地图，即使使用了不同词语，相关概念仍然会被放在相近的位置。
+**通俗解释**：embedding 会把文本映射到高维空间中的点，在这个空间里，语义相近的内容会彼此靠近。它就像一张地图，即使使用了不同词语，相关概念仍然会被放在相近的位置。
 
 ---
 
@@ -103,38 +103,38 @@ Similarity(q, d) = cosine(E(q), E(d)) = (E(q) · E(d)) / (||E(q)|| ||E(d)||)
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        KNOWLEDGE ORCHESTRATION LAYER                │
+│                           知识编排层                                │
 │  ┌──────────────────┬─────────────────┬──────────────────────────┐  │
-│  │   QUERY ANALYSIS │  MULTI-SOURCE   │    RESPONSE SYNTHESIS    │  │
-│  │                  │    RETRIEVAL    │                          │  │
-│  │  • Intent Extr.  │  • Vector DBs   │  • Conflict Resolution  │  │
-│  │  • Query Expand. │  • Graph DBs    │  • Evidence Weighting   │  │
-│  │  • Context Aware │  • APIs         │  • Knowledge Fusion     │  │
-│  │  • Decomposition │  • Real-time    │  • Quality Assessment   │  │
+│  │    查询分析      │    多源检索      │        响应综合          │  │
+│  │                  │                 │                          │  │
+│  │  • 意图提取      │  • 向量数据库    │  • 冲突解决              │  │
+│  │  • 查询扩展      │  • 图数据库      │  • 证据加权              │  │
+│  │  • 上下文感知    │  • API 接口      │  • 知识融合              │  │
+│  │  • 问题拆解      │  • 实时数据      │  • 质量评估              │  │
 │  └──────────────────┴─────────────────┴──────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────┘
                                  ▲
 ┌─────────────────────────────────────────────────────────────────────┐
-│                         RETRIEVAL EXECUTION LAYER                  │
+│                           检索执行层                                │
 │  ┌──────────────────┬─────────────────┬──────────────────────────┐  │
-│  │  VECTOR SEARCH   │  HYBRID SEARCH  │    RESULT PROCESSING     │  │
+│  │    向量搜索      │    混合搜索      │        结果处理          │  │
 │  │                  │                 │                          │  │
-│  │  • Dense Retriev │  • Sparse+Dense │  • Reranking             │  │
-│  │  • Approximate   │  • BM25+Vector  │  • Deduplication         │  │
-│  │  • Similarity    │  • Graph+Vector │  • Chunk Assembly        │  │
-│  │  • Index Optim   │  • Multi-modal  │  • Metadata Integration  │  │
+│  │  • 稠密检索      │  • 稀疏+稠密     │  • 重排序                │  │
+│  │  • 近似搜索      │  • BM25+向量     │  • 去重                  │  │
+│  │  • 相似度计算    │  • 图+向量       │  • 片段组装              │  │
+│  │  • 索引优化      │  • 多模态        │  • 元数据集成            │  │
 │  └──────────────────┴─────────────────┴──────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────┘
                                  ▲
 ┌─────────────────────────────────────────────────────────────────────┐
-│                          KNOWLEDGE STORAGE LAYER                   │
+│                           知识存储层                                │
 │  ┌──────────────────┬─────────────────┬──────────────────────────┐  │
-│  │   VECTOR STORES  │  GRAPH STORES   │    DOCUMENT STORES       │  │
+│  │    向量存储      │     图存储       │        文档存储          │  │
 │  │                  │                 │                          │  │
-│  │  • Embeddings    │  • Entity Rel.  │  • Raw Documents         │  │
-│  │  • Index Struct  │  • Knowledge    │  • Metadata              │  │
-│  │  • Similarity    │    Graphs       │  • Version Control       │  │
-│  │  • Partitioning  │  • Ontologies   │  • Access Control        │  │
+│  │  • Embeddings    │  • 实体关系      │  • 原始文档              │  │
+│  │  • 索引结构      │  • 知识图谱      │  • 元数据                │  │
+│  │  • 相似度        │  • 本体          │  • 版本控制              │  │
+│  │  • 分区          │                 │  • 访问控制              │  │
 │  └──────────────────┴─────────────────┴──────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -1498,12 +1498,12 @@ optimizer = RAGOptimizer()
 
 ### 与 Context Engineering Survey 的关联
 
-**检索增强生成（§5.1）**：
+**Retrieval-Augmented Generation (§5.1)**:
 - 我们的实现直接扩展了 FlashRAG、KRAGEN 和 GraphRAG 架构
 - 在现有模块化 RAG 方法之上进一步推进了多源融合
 - 与动态上下文组装结合，以实现最优知识选择
 
-**知识集成挑战**：
+**Knowledge Integration Challenges**:
 - 通过全面的来源追踪来解决来源归属挑战
 - 通过智能知识编排来解决多工具协同问题
 - 通过策略性信息选择来处理上下文长度限制
