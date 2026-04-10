@@ -101,27 +101,43 @@ Similarity(q, d) = cosine(E(q), E(d)) = (E(q) · E(d)) / (||E(q)|| ||E(d)||)
 
 ## 可视化架构：RAG 系统组件
 
-### 知识编排层
-
-| 查询分析 | 多源检索 | 响应综合 |
-|---|---|---:|
-| • 意图提取<br>• 查询扩展<br>• 上下文感知<br>• 问题拆解 | • 向量数据库<br>• 图数据库<br>• API 接口<br>• 实时数据 | • 冲突解决<br>• 证据加权<br>• 知识融合<br>• 质量评估 |
-
-**▲**
-
-### 检索执行层
-
-| 向量搜索 | 混合搜索 | 结果处理 |
-|---|---|---:|
-| • 稠密检索<br>• 近似搜索<br>• 相似度计算<br>• 索引优化 | • 稀疏+稠密<br>• BM25+向量<br>• 图+向量<br>• 多模态 | • 重排序<br>• 去重<br>• 片段组装<br>• 元数据集成 |
-
-**▲**
-
-### 知识存储层
-
-| 向量存储 | 图存储 | 文档存储 |
-|---|---|---:|
-| • 嵌入向量<br>• 索引结构<br>• 相似度<br>• 分区 | • 实体关系<br>• 知识图谱<br>• 本体 | • 原始文档<br>• 元数据<br>• 版本控制<br>• 访问控制 |
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        KNOWLEDGE ORCHESTRATION LAYER                │
+│  ┌──────────────────┬─────────────────┬──────────────────────────┐  │
+│  │   QUERY ANALYSIS │  MULTI-SOURCE   │    RESPONSE SYNTHESIS    │  │
+│  │                  │    RETRIEVAL    │                          │  │
+│  │  • Intent Extr.  │  • Vector DBs   │  • Conflict Resolution  │  │
+│  │  • Query Expand. │  • Graph DBs    │  • Evidence Weighting   │  │
+│  │  • Context Aware │  • APIs         │  • Knowledge Fusion     │  │
+│  │  • Decomposition │  • Real-time    │  • Quality Assessment   │  │
+│  └──────────────────┴─────────────────┴──────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+                                 ▲
+┌─────────────────────────────────────────────────────────────────────┐
+│                         RETRIEVAL EXECUTION LAYER                  │
+│  ┌──────────────────┬─────────────────┬──────────────────────────┐  │
+│  │  VECTOR SEARCH   │  HYBRID SEARCH  │    RESULT PROCESSING     │  │
+│  │                  │                 │                          │  │
+│  │  • Dense Retriev │  • Sparse+Dense │  • Reranking             │  │
+│  │  • Approximate   │  • BM25+Vector  │  • Deduplication         │  │
+│  │  • Similarity    │  • Graph+Vector │  • Chunk Assembly        │  │
+│  │  • Index Optim   │  • Multi-modal  │  • Metadata Integration  │  │
+│  └──────────────────┴─────────────────┴──────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+                                 ▲
+┌─────────────────────────────────────────────────────────────────────┐
+│                          KNOWLEDGE STORAGE LAYER                   │
+│  ┌──────────────────┬─────────────────┬──────────────────────────┐  │
+│  │   VECTOR STORES  │  GRAPH STORES   │    DOCUMENT STORES       │  │
+│  │                  │                 │                          │  │
+│  │  • Embeddings    │  • Entity Rel.  │  • Raw Documents         │  │
+│  │  • Index Struct  │  • Knowledge    │  • Metadata              │  │
+│  │  • Similarity    │    Graphs       │  • Version Control       │  │
+│  │  • Partitioning  │  • Ontologies   │  • Access Control        │  │
+│  └──────────────────┴─────────────────┴──────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 **通俗解释**：这个架构展示了复杂 RAG 系统如何在多个层次上协同工作：
 - **底层**：用于存储不同类型知识的系统（向量、图、文档）
