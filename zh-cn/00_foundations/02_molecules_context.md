@@ -1,0 +1,566 @@
+<!-- markdownlint-disable MD009 MD012 MD013 MD022 MD024 MD031 MD032 MD033 MD036 MD040 MD046 MD050 MD060 -->
+
+# 分子（Molecules）：把 Prompts 与示例组合起来
+
+> "The whole is greater than the sum of its parts." — Aristotle
+
+## 从原子到分子
+
+在上一节里，我们讨论了 **atomic prompts**——LLM 交互的基本单元：单条指令。现在我们把这些 atoms 组合成 **molecules**：包含示例与可复用模式的结构化上下文，让模型能识别并延续你希望的行为形态。
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  MOLECULE = [INSTRUCTION] + [EXAMPLES] + [CONTEXT] + [NEW INPUT]            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+这种分子化方法依赖 LLM 的一个关键能力：**few-shot learning**。
+
+## Few-shot Learning：用示例教学
+
+few-shot learning 的基本思想是：你提供一组“输入-输出”示例，让模型识别你想要的映射模式，并在新输入上延续这种模式。
+
+```
+┌───────────────────────────────────────────────────────────────────────┐
+│ Input: "Paris"                                                        │
+│ Output: "Paris is the capital of France."                             │
+│                                                                       │
+│ Input: "Tokyo"                                                        │
+│ Output: "Tokyo is the capital of Japan."                              │
+│                                                                       │
+│ Input: "Ottawa"                                                       │
+│ Output: ?                                                             │
+└───────────────────────────────────────────────────────────────────────┘
+```
+
+模型识别模式后，会补全：`Ottawa is the capital of Canada.`
+
+## 分子的优势：可测量的提升
+
+我们用同一个任务对比 atomic 与 molecular 两种做法：
+
+```
+┌───────────────────────────────────────┬──────────────────────────────────────┐
+│ ATOMIC APPROACH                       │ MOLECULAR APPROACH                   │
+├───────────────────────────────────────┼──────────────────────────────────────┤
+│ "Classify this review as positive     │ "Classify the sentiment of reviews.  │
+│  or negative:                         │                                      │
+│                                       │ Review: 'The food was amazing!'      │
+│  'The service was terrible and        │ Sentiment: Positive                  │
+│   the food was cold.'"                │                                      │
+│                                       │ Review: 'Waited 30 minutes and       │
+│                                       │  the food was cold.'                 │
+│                                       │ Sentiment: Negative                  │
+│                                       │                                      │
+│                                       │ Review: 'The service was terrible    │
+│                                       │  and the food was cold.'"            │
+│                                       │ Sentiment:                           │
+└───────────────────────────────────────┴──────────────────────────────────────┘
+```
+
+通常来说，molecular approach 会带来：
+- 更高的准确率（许多任务上可提升 10–30%）
+- 更好的稳定性（输出方差更低）
+- 更强的格式遵循（format adherence）
+- 更清晰的边界/边缘情况处理（edge cases）
+
+example 1 by gpt-4o-mini
+```text
+甲、乙、丙三人中，只有一人说真话。
+甲说：乙在说谎。
+乙说：丙在说谎。
+丙说：甲和乙都在说谎。
+谁说真话？
+
+
+根据题目中的陈述，只有一个人说真话，我们可以逐一分析每个人的说法。
+
+1. **假设甲说真话**：
+   - 如果甲说真话，那么根据他的陈述，乙在说谎。
+   - 如果乙在说谎，那么乙的陈述“丙在说谎”就是假话，这意味着丙说真话。
+   - 这就导致矛盾（甲真、乙假、丙真），因此甲不可能是说真话的人。
+
+2. **假设乙说真话**：
+   - 如果乙说真话，那么丙在说谎。
+   - 如果丙在说谎，那么丙的陈述“甲和乙都在说谎”就是假话，这意味着甲说真话。
+   - 这也导致矛盾（乙真、丙假、甲真），因此乙也不可能是说真话的人。
+
+3. **假设丙说真话**：
+   - 如果丙说真话，那么根据他的陈述，甲与乙都在说谎。
+   - 这符合条件，即只有丙说真话，甲和乙都在说谎。
+
+因此，**丙说真话**。
+```
+
+example 2 by gpt-4o-mini
+```text
+甲、乙、丙三人中，只有一人说真话。
+甲说：乙在说谎。
+乙说：丙在说谎。
+丙说：甲和乙都在说谎。
+谁说真话？
+我们来分析一下这三个人的说法：
+
+1. **甲**说：乙在说谎。
+2. **乙**说：丙在说谎。
+3. **丙**说：甲和乙都在说谎。
+
+根据题目条件，只有一人说真话，我们可以逐一假设每个人为真话者：
+
+- **假设甲说真话**：
+  - 那么乙就是在说谎，而乙说丙在说谎，这意味着丙是说真话。但这样就有两个人在说真话（甲和丙），矛盾。
+
+- **假设乙说真话**：
+  - 那么丙在说谎。根据丙的说法，甲和乙都在说谎，这与乙说真话的假设矛盾了，因此也不成立。
+
+- **假设丙说真话**：
+  - 那么甲和乙都在说谎。甲说乙在说谎，乙说丙在说谎，都是谎言，这样只有丙一个人在说真话，符合题目条件。
+
+综上所述，**丙**是唯一说真话的人。
+```
+
+example 3 by gpt-4o-mini
+
+```text
+甲、乙、丙三人中，只有一人说真话。
+甲说：乙在说谎。
+乙说：丙在说谎。
+丙说：甲和乙都在说谎。
+谁说真话？
+
+我们来分析这三人的陈述。
+
+1. **甲说：乙在说谎。**
+2. **乙说：丙在说谎。**
+3. **丙说：甲和乙都在说谎。**
+
+由于只有一个人说真话，假设其中某个人说真话，然后检查其他人的陈述是否成立。
+
+- **假设甲说真话：**  
+  - 这意味着乙说谎。
+  - 如果乙在说谎，那么丙就是真话。但这与甲真话的假设矛盾。因此，甲不能是真话。
+
+- **假设乙说真话：**  
+  - 这意味着丙在说谎。
+  - 如果丙在说谎，那他所说的“甲和乙都在说谎”就不成立。因此，甲必须说真话，但这与我们假设乙说真话矛盾。所以，乙也不能是真话。
+
+- **假设丙说真话：**  
+  - 这意味着甲和乙都在说谎。
+  - 如果甲和乙都在说谎，甲的陈述“乙在说谎”是错的，乙的陈述“丙在说谎”也是错的。这样符合丙说真话的情况。
+
+因此，**丙说真话**。
+```
+
+example 4 by gpt-4o-mini
+```text
+甲、乙、丙三人中，只有一人说真话。
+甲说：乙在说谎。
+乙说：丙在说谎。
+丙说：甲和乙都在说谎。
+谁说真话？请按步骤：列假设
+逐个验证
+排除矛盾
+给出结论  分析并给出结论
+
+为了解决这个逻辑问题，我们需要通过假设和验证来找出谁在说真话。我们将逐步分析每个假设。
+
+### 假设与验证
+
+1. **假设1：甲说真话**
+   - 如果甲说真话，那么根据甲的陈述，**乙在说谎**。
+   - 此时，乙说：丙在说谎，因此丙也在说谎。
+   - 结果是：甲真话，乙谎话，丙谎话。这与“只有一个人说真话”的条件相符。
+
+2. **假设2：乙说真话**
+   - 如果乙说真话，那么根据乙的陈述，**丙在说谎**。
+   - 此时，甲说乙在说谎，这就不成立，因为我们假设乙说真话。
+   - 结果是：甲谎话，乙真话，丙谎话。但这与“只有一个人说真话”的条件相矛盾，因为有两个人（乙和丙）被认为在说谎。
+
+3. **假设3：丙说真话**
+   - 如果丙说真话，那么根据丙的陈述，**甲和乙都在说谎**。
+   - 结果是：甲谎话，乙谎话，丙真话。这个假设与“只有一个人说真话”的条件相符。
+   - 然而，这与“乙在说谎”的情况下，乙的陈述（丙在说谎）形成矛盾，因此这个假设不成立。
+
+### 结论分析
+
+通过逐一验证假设，只有**假设1（甲说真话）**没有出现矛盾，而假设2和3均出现了不符合条件的矛盾。因此，唯一的结论是：
+
+**甲说真话，乙和丙在说谎。**
+```
+
+example 5 by gpt-4o-mini
+```text
+甲、乙、丙三人中，只有一人说真话。
+甲说：乙在说谎。
+乙说：丙在说谎。
+丙说：甲和乙都在说谎。
+谁说真话？请分步骤分析。
+
+要找到甲、乙、丙三人中谁说真话，可以逐步分析每个人的陈述。
+
+---
+
+### 假设分析
+
+1. **假设甲说真话：**
+   - 甲说乙在说谎，这意味着乙说的是假话。
+   - 乙说丙在说谎，如果乙说谎，那丙实际上在说真话。
+   - 但如果丙说了真话，丙的陈述是“甲和乙都在说谎”，这与我们假设甲说真话矛盾。
+   - 因此，甲不能说真话。
+
+---
+
+2. **假设乙说真话：**
+   - 乙说丙在说谎，这意味着丙说的是假话。
+   - 丙说甲和乙都在说谎，如果丙说谎，那么甲和乙中至少有一个在说真话。
+   - 根据我们的假设，乙在说真话，那么这个假设是自洽的。
+   - 所以，乙有可能说真话。
+
+---
+
+3. **假设丙说真话：**
+   - 丙说甲和乙都在说谎，这意味着甲和乙都在说假话。
+   - 甲说乙在说谎，如果甲说谎，则乙在说真话，这与我们假设丙说真话矛盾。因此，丙不能说真话。
+
+---
+
+### 结论
+
+从上述分析可得，只有 **乙说真话**。甲和丙都在说谎。
+```
+
+example 6 by gpt-5.4 xhigh
+```text
+甲、乙、丙三人中，只有一人说真话。
+  甲说：乙在说谎。
+  乙说：丙在说谎。
+  丙说：甲和乙都在说谎。
+  谁说真话？请按步骤：列假设
+  逐个验证
+  排除矛盾
+  给出结论  分析并给出结论
+  按题意：甲、乙、丙三人中，只有一人说真话。
+
+  已知：
+
+  - 甲说：乙在说谎
+  - 乙说：丙在说谎
+  - 丙说：甲和乙都在说谎
+
+  1. 列假设
+
+  分别假设真话者是：
+
+  1. 甲说真话
+  2. 乙说真话
+  3. 丙说真话
+
+  2. 逐个验证
+
+  假设一：甲说真话
+
+  - 甲真，则“乙在说谎”成立，所以乙假。
+  - 乙假，说明乙说的“丙在说谎”是假，因此丙不是说谎，丙真。
+  - 这样就变成甲真、丙真，有两个人说真话，和题意矛盾。
+
+  所以，甲不可能说真话。
+
+  假设二：乙说真话
+
+  - 乙真，则“丙在说谎”成立，所以丙假。
+  - 既然只有一人说真话，那么甲也必须是假。
+  - 检查甲的话：“乙在说谎。”
+    乙实际上是真话，所以甲这句话确实是假。
+  - 检查丙的话：“甲和乙都在说谎。”
+    实际上甲假、乙真，所以“甲和乙都在说谎”是假的。
+
+  这一组完全符合题意。
+
+  所以，乙说真话 是成立的。
+
+  假设三：丙说真话
+
+  - 丙真，则“甲和乙都在说谎”成立，所以甲假、乙假。
+  - 甲假意味着“乙在说谎”这句话是假，也就是乙不是说谎，乙真。
+  - 这和“乙假”矛盾。
+
+  所以，丙不可能说真话。
+
+  3. 排除矛盾
+
+  - 甲真：矛盾
+  - 丙真：矛盾
+  - 乙真：成立
+
+  4. 结论
+
+  乙说真话。
+
+  对应真假为：
+
+  - 甲说谎
+  - 乙说真话
+  - 丙说谎
+```
+CoT 不能保证正确，它解决的是“过程组织/推理展开”的问题，不是“模型能力上限”的问题。模型能力决定“能不能做对”，CoT 主要影响“有没有更容易把这件事做对”。
+
+## 设计有效的分子模板
+
+分子上下文的结构非常关键。下面是一些常见模式：
+
+```
+┌─────────────────────────┐  ┌───────────────────┐  ┌───────────────────┐
+│ PREFIX-SUFFIX           │  │ INPUT-OUTPUT PAIRS│  │ CHAIN-OF-THOUGHT  │
+├─────────────────────────┤  ├───────────────────┤  ├───────────────────┤
+│ <instruction>           │  │ <instruction>     │  │ <instruction>     │
+│                         │  │                   │  │                   │
+│ <example1> → <result1>  │  │ Input: <example1> │  │ Input: <example1> │
+│                         │  │ Output: <result1> │  │ Thinking: <step1> │
+│ <example2> → <result2>  │  │                   │  │           <step2> │
+│                         │  │ Input: <example2> │  │ Output: <result1> │
+│ <new_input> →           │  │ Output: <result2> │  │                   │
+└─────────────────────────┘  │                   │  │ Input: <example2> │
+                             │ Input: <new_input>│  │ Thinking: <step1> │
+                             │ Output:           │  │           <step2> │
+                             └───────────────────┘  │ Output: <result2> │
+                                                    │                   │
+                                                    │ Input: <new_input>│
+                                                    │ Thinking:         │
+                                                    └───────────────────┘
+```
+
+Each template has strengths for different tasks:
+- **Prefix-Suffix**: Simplest, works well for straightforward tasks
+- **Input-Output Pairs**: Clear demarcation, good for structured data
+- **Chain-of-Thought**: Exposes reasoning steps, best for complex tasks
+
+## The Science of Example Selection
+
+Not all examples are created equal. When choosing examples for your molecular context:
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│ EXAMPLE SELECTION STRATEGIES                                 │
+├──────────────────────────────────────────────────────────────┤
+│ ✓ Cover diverse cases to show range                          │
+│ ✓ Include edge cases that clarify boundaries                 │
+│ ✓ Order from simple to complex when possible                 │
+│ ✓ Use recent or common examples (recency and frequency bias) │
+│ ✓ Include near-misses to establish precise boundaries        │
+└──────────────────────────────────────────────────────────────┘
+```
+
+## Measuring Molecular Efficiency
+
+As context size grows, so does token count. Let's empirically measure the trade-off:
+
+```
+                   [Accuracy]
+                       ▲
+                       │                                    ● 4-shot
+                       │                           ● 3-shot
+                       │                              
+                       │                   ● 2-shot 
+                       │              
+                       │           
+                       │           ● 1-shot 
+                       │      
+                       │
+                       │  
+                       │   ● 0-shot
+                       └─────────────────────────────────────────────────►
+                                [Tokens]
+```
+
+关键洞见是 **边际递减（diminishing returns）**：每增加一个 example 都要付出 token 成本，但带来的收益通常会比前一个更小。
+
+## 找到分子“甜点区”（Sweet Spot）
+
+对大多数任务来说，存在一个 example 数量的最优区间，用以平衡质量与 token 效率：
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ EXAMPLE COUNT HEURISTICS BY TASK TYPE                           │
+├───────────────────────────┬─────────────────────────────────────┤
+│ Classification            │ 1-3 examples per class              │
+├───────────────────────────┼─────────────────────────────────────┤
+│ Generation                │ 2-5 examples                        │
+├───────────────────────────┼─────────────────────────────────────┤
+│ Structured Extraction     │ 2-4 examples covering all fields    │
+├───────────────────────────┼─────────────────────────────────────┤
+│ Reasoning                 │ 2-3 examples with thinking steps    │
+├───────────────────────────┼─────────────────────────────────────┤
+│ Translation               │ 3-5 examples with varying complexity│
+└───────────────────────────┴─────────────────────────────────────┘
+```
+
+## 动态构造分子（Dynamic Molecule Construction）
+
+更高级的 context engineering 会针对每个输入动态选择最相关的 examples：
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│                                                                   │
+│   User Query                                                      │
+│       │                                                           │
+│       ▼                                                           │
+│  ┌─────────────┐      ┌─────────────────┐                         │
+│  │ Query       │      │                 │                         │
+│  │ Analysis    │─────▶│ Example         │                         │
+│  │             │      │ Database        │                         │
+│  └─────────────┘      │                 │                         │
+│                       └─────────────────┘                         │
+│                              │                                    │
+│                              │ Retrieve most                      │
+│                              │ similar examples                   │
+│                              ▼                                    │
+│                       ┌─────────────────┐                         │
+│                       │ Dynamic         │                         │
+│                       │ Molecular       │                         │
+│                       │ Context         │                         │
+│                       └─────────────────┘                         │
+│                              │                                    │
+│                              │                                    │
+│                              ▼                                    │
+│                       ┌─────────────────┐                         │
+│                       │                 │                         │
+│                       │ LLM             │                         │
+│                       │                 │                         │
+│                       └─────────────────┘                         │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+这种方法通常包含：
+1. 分析用户查询
+2. 检索最相关的 examples
+3. 组装“定制化”的分子上下文
+4. 把优化后的上下文发送给 LLM
+
+```text
+
+1. **分析用户当前问题**
+   - 先判断这次在问什么
+   - 属于哪类任务
+   - 需要什么样的示例
+
+2. **从示例库里挑最相关的例子**
+   - 不是把所有 examples 都放进去
+   - 而是只取和当前 query 最像、最有帮助的几个
+
+3. **拼装成这次专属的 context**
+   - 指令
+   - 示例
+   - 输出格式
+   - 必要约束
+   组合成一个“动态 molecular context”
+
+4. **控制上下文长度和质量**
+   - 避免无关内容占 token
+   - 避免上下文过长导致性能下降
+   - 提高针对性和命中率
+
+```
+在这实际中工程量会大很多，比如示例库的建立，query时怎么匹配，怎么判断是否相关。因为实际的问题可能千变万化。
+
+## 落地实践：一个简单实现
+
+下面是一个 Python 函数：把 instruction、examples 与新输入组合成分子上下文：
+
+```python
+def create_molecular_context(instruction, examples, new_input, 
+                            format_type="input-output"):
+    """
+    Construct a molecular context from examples.
+    
+    Args:
+        instruction (str): The task instruction
+        examples (List[Dict]): List of example input/output pairs
+        new_input (str): The new input to process
+        format_type (str): Template type (input-output, chain-of-thought)
+    
+    Returns:
+        str: The complete molecular context
+    """
+    context = f"{instruction}\n\n"
+    
+    # Add examples based on format type
+    if format_type == "input-output":
+        for example in examples:
+            context += f"Input: {example['input']}\n"
+            context += f"Output: {example['output']}\n\n"
+    elif format_type == "chain-of-thought":
+        for example in examples:
+            context += f"Input: {example['input']}\n"
+            context += f"Thinking: {example['thinking']}\n"
+            context += f"Output: {example['output']}\n\n"
+    
+    # Add the new input
+    context += f"Input: {new_input}\nOutput:"
+    
+    return context
+```
+
+## 关键要点
+
+1. **Molecular contexts** 通过“指令 + 示例”提升 LLM 表现
+2. **Few-shot learning** 让模型能识别并延续模式
+3. **模板结构** 很重要：不同任务适配不同格式
+4. **示例选择** 是一门学问：多样性、edge cases 与顺序都会影响效果
+5. 存在 **边际递减**：每多一个 example 都会消耗 tokens，收益递减
+6. **动态构造** 能针对具体输入优化上下文
+
+## 练习
+
+1. 选择一个分类任务，分别用 0、1、3、5 个 examples 测量效果
+2. 在同一任务上对比不同模板结构
+3. 基于新输入的相似度实现动态 example selection
+4. 为你关心的任务找到“最小可行分子（minimum viable molecule）”
+
+## 下一步
+
+下一节我们将讨论 **cells**——能够跨多轮交互维持 memory 与 state 的上下文结构。
+
+[继续阅读 03_cells_memory.md →](03_cells_memory.md)
+
+---
+
+## 深入：Prompt Engineering vs. Context Engineering
+
+prompt engineering 关注把“单条指令”打磨到最好；而 context engineering 包含 prompt engineering，并且进一步覆盖更多层次：
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│ CONTEXT ENGINEERING LAYERS                                          │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│   ┌─────────────────┐                                               │
+│   │ State & Memory  │  Conversation history, persistent variables   │
+│   └─────────────────┘                                               │
+│           ▲                                                         │
+│           │                                                         │
+│   ┌─────────────────┐                                               │
+│   │ Retrieved Data  │  RAG, tool outputs, external knowledge        │
+│   └─────────────────┘                                               │
+│           ▲                                                         │
+│           │                                                         │
+│   ┌─────────────────┐                                               │
+│   │ Examples        │  Few-shot learning, demonstrations            │
+│   └─────────────────┘                                               │
+│           ▲                                                         │
+│           │                                                         │
+│   ┌─────────────────┐                                               │
+│   │ Instructions    │  Prompts, system messages, constraints        │
+│   └─────────────────┘                                               │
+│           ▲                                                         │
+│           │                                                         │
+│   ┌─────────────────┐                                               │
+│   │ Model Behavior  │  Training data, alignments, capabilities      │
+│   └─────────────────┘                                               │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+context engineering 能让你控制其中更多层，从而支撑更强大的应用形态。
