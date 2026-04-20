@@ -1,12 +1,12 @@
 <!-- markdownlint-disable MD009 MD012 MD013 MD022 MD024 MD031 MD032 MD033 MD036 MD040 MD046 MD050 MD060 -->
 
-# 原子（Atoms）：Prompting 的基本单元
+# 原子：提示词的基本单元
 
 > "If you wish to make an apple pie from scratch, you must first invent the universe." — Carl Sagan
 
 ## 原子：单条指令
 
-在 context engineering 的旅程里，我们从最基础的单元开始：**atom**——一条给 LLM 的独立指令。
+在上下文工程的旅程里，我们从最基础的单元开始：原子——一条给大语言模型的独立指令。
 
 ```
 ┌───────────────────────────────────────────────┐
@@ -16,11 +16,11 @@
 └───────────────────────────────────────────────┘
 ```
 
-这就是最“纯”的 prompt engineering：一个人、一条指令、一次模型响应。简单、直接、原子化。
+这就是最“纯”的提示词工程：一个人、一条指令、一次模型响应。简单、直接、原子化。
 
-## 原子 Prompt 的结构
+## 原子提示的结构
 
-把一个有效的 atomic prompt 拆开来看：
+把一个有效的原子提示拆开来看：
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -45,7 +45,7 @@
 
 ## 原子的局限
 
-atomic prompts 虽然是 LLM 交互的积木，但它们很快就会暴露出一些基本局限：
+原子提示虽然是大语言模型交互的积木，但它们很快就会暴露出一些基本局限：
 
 ```
 ┌──────────────────────────────────────┐
@@ -143,17 +143,19 @@ print(f"Found {len(unique_symptoms)} unique symptoms across 5 identical prompts"
 - 1 型和 2 型糖尿病症状区别
 - 何时该去医院检查
 
-以上5次测试使用的gpt-5.4 reasoning-efffort:high的情况测试的。
+以上 5 次测试使用的模型与配置如下：
+
+gpt-5.4 reasoning-effort:high
 
 问题在哪里？当上下文极少时，模型很难保持一致性。
 
 ## 单原子基线：有用但有限
 
-尽管有限，atomic prompts 依然是非常重要的基线（baseline）。它们帮助我们：
+尽管有限，原子提示依然是非常重要的基线。它们帮助我们：
 
-1. 度量 token 效率（额外开销最小）
+1. 度量标记效率（额外开销最小）
 2. 基准化比较回答质量
-3. 为实验建立对照组（control）
+3. 为实验建立对照组
 
 ```
                      [Response Quality]
@@ -175,7 +177,7 @@ print(f"Found {len(unique_symptoms)} unique symptoms across 5 identical prompts"
 
 ## 未明说的上下文：模型“默认知道”的东西
 
-即使只给 atomic prompt，LLM 也会调用训练中习得的大量隐式上下文：
+即使只给原子提示，大语言模型也会调用训练中习得的大量隐式上下文：
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
@@ -191,9 +193,9 @@ print(f"Found {len(unique_symptoms)} unique symptoms across 5 identical prompts"
 
 这些隐式知识让我们在“零上下文”时也能得到可用输出，但它不稳定，而且会随模型与版本变化。
 
-## 幂律：Token-质量曲线
+## 幂律：标记数与质量曲线
 
-在许多任务上，我们会观察到一种“上下文 token 数量”和“输出质量”之间的幂律关系：
+在许多任务上，我们会观察到一种“上下文标记数量”和“输出质量”之间的幂律关系：
 
 ```
 Quality
@@ -209,13 +211,15 @@ Quality
           [Poor Start]  [Maximum ROI]  [Diminishing Returns]
 ```
 
-关键洞见在于：存在一个“最大 ROI 区间”，在这里增加少量 tokens 就能显著提升质量；也存在“边际递减区间”，在这里继续堆 tokens 反而可能带来性能下降或不稳定。
+关键洞见在于：存在一个“最大投入产出比区间”，在这里增加少量标记就能显著提升质量；也存在“边际递减区间”，在这里继续堆标记反而可能带来性能下降或不稳定。
 
-## [了解更多：Context Rot](https://research.trychroma.com/context-rot)
+## 了解更多
+
+https://research.trychroma.com/context-rot
 
 ## 从原子到分子：为什么需要更多上下文
 
-atom 的局限会自然把我们带到下一步：**molecules**——把指令与示例、补充上下文、结构化格式组合在一起的多段 prompts。
+原子的局限会自然把我们带到下一步：分子——把指令与示例、补充上下文、结构化格式组合在一起的多段提示。
 
 下面是这种转变的基本形态：
 
@@ -230,16 +234,16 @@ atom 的局限会自然把我们带到下一步：**molecules**——把指令�
     [Atomic Prompt]                       [Molecular Prompt]
 ```
 
-当我们加入 examples 和结构时，就开始“有意塑形”上下文窗口——这正是走向 context engineering 的第一步。
+当我们加入示例和结构时，就开始“有意塑形”上下文窗口——这正是走向上下文工程的第一步。
 
 ## 度量原子效率：你的第一个练习
 
 在继续之前，你可以做一个非常简单的练习：
 
-1. 选择一个你常给 LLM 的基础任务
-2. 写出三个不同版本的 atomic prompt
-3. 度量 tokens 消耗与主观质量
-4. 画出效率前沿（efficiency frontier）
+1. 选择一个你常给大语言模型的基础任务
+2. 写出三个不同版本的原子提示
+3. 度量标记消耗与主观质量
+4. 画出效率前沿
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -262,24 +266,26 @@ atom 的局限会自然把我们带到下一步：**molecules**——把指令�
 
 ## 关键要点
 
-1. **Atomic prompts** 是 LLM 交互的基本单元
-2. 它们遵循基本结构：task + constraints + output format
-3. 它们有天然限制：没有 memory、examples 与 reasoning scaffolds
-4. 即使很简单的 atomic prompt 也会依赖模型的隐式知识
-5. context tokens 与质量之间常呈幂律关系
-6. 从 atoms 走向 molecules，是进入 context engineering 的第一步
+1. 原子提示是大语言模型交互的基本单元
+2. 它们遵循基本结构：任务、约束与输出格式
+3. 它们有天然限制：没有跨轮记忆、示例与推理脚手架
+4. 即使很简单的原子提示也会依赖模型的隐式知识
+5. 上下文标记数量与质量之间常呈幂律关系
+6. 从原子走向分子，是进入上下文工程的第一步
 
 ## 下一步
 
-下一节将介绍如何把 atoms 组合成 **molecules**——few-shot learning 模式，它能显著提升可靠性与可控性。
+下一节将介绍如何把原子组合成分子：通过小样本学习模式显著提升可靠性与可控性。
 
-[继续阅读 02_molecules_context.md →](02_molecules_context.md)
+继续阅读下一节：
+
+[02_molecules_context.md →](02_molecules_context.md)
 
 ---
 
-## 深入：Prompt Templates
+## 深入：提示模板
 
-如果你想对 atomic prompts 做更多实验，这里有一些可以直接复用的模板：
+如果你想对原子提示做更多实验，这里有一些可以直接复用的模板：
 
 ```
 # Basic instruction
@@ -307,4 +313,4 @@ Please follow these steps:
 3. {step_3}
 ```
 
-建议你把同一个任务套到不同模板上，实际测一下 token 数和输出质量的变化。
+建议你把同一个任务套到不同模板上，实际测一下标记数量和输出质量的变化。
